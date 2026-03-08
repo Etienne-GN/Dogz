@@ -1,0 +1,26 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.dog.move": {
+			"states": {
+				"default": {
+					"animations": [
+						{ "look": "query.is_alive" },
+						{ "walk": "query.modified_move_speed > 0.1 && !query.is_sitting && !query.is_sheared && !query.is_baby" },
+						{ "sit": "query.is_sitting && !query.is_sheared && !query.is_baby" },
+						{ "lay_down": "query.is_sheared || query.is_baby" }
+					],
+					"transitions": [
+						{ "downed": "query.is_baby" }
+					]
+				},
+				"downed": {
+					"animations": [ "lay_down" ],
+					"transitions": [
+						{ "default": "!query.is_baby" }
+					]
+				}
+			}
+		}
+	}
+}

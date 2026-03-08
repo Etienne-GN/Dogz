@@ -1,0 +1,40 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.goodboy.retriever",
+				"texture_width": 64, "texture_height": 64,
+				"visible_bounds_width": 2, "visible_bounds_height": 2,
+				"visible_bounds_offset": [0, 1, 0]
+			},
+			"bones": [
+				{ "name": "root", "pivot": [0, 0, 0] },
+				{ "name": "body", "parent": "root", "pivot": [0, 10, 0], 
+					"cubes": [ 
+						{ "origin": [-3, 5, -6], "size": [6, 8, 13], "uv": [0, 0] }, 
+						{ "origin": [-3, 3, -6], "size": [6, 2, 13], "uv": [0, 45] } 
+					],
+					"locators": {
+						"lead": [0, 10, -5]
+					}
+				},
+				{ "name": "collar", "parent": "body", "pivot": [0, 10, -5], "cubes": [
+					{ "origin": [-3.5, 6.5, -6.5], "size": [7, 7, 2], "uv": [0, 0], "inflate": 0.1 }
+				] },
+				{ "name": "head", "parent": "body", "pivot": [0, 10, -5], "cubes": [ 
+					{ "origin": [-3.5, 7, -10], "size": [7, 7, 5], "uv": [25, 0] }, 
+					{ "origin": [-1.5, 7, -13], "size": [3, 3, 3], "uv": [0, 0] } 
+				] },
+				{ "name": "r_ear", "parent": "head", "pivot": [-3.5, 12, -7], "cubes": [ { "origin": [-4.5, 7, -9], "size": [1, 5, 3], "uv": [30, 34] } ] },
+				{ "name": "l_ear", "parent": "head", "pivot": [3.5, 12, -7], "cubes": [ { "origin": [3.5, 7, -9], "size": [1, 5, 3], "uv": [30, 34], "mirror": true } ] },
+				{ "name": "tail", "parent": "body", "pivot": [0, 11, 7], "cubes": [ { "origin": [-1, 10, 7], "size": [2, 2, 10], "uv": [0, 21] } ] },
+				{ "name": "tail_fur", "parent": "tail", "pivot": [0, 11, 7], "cubes": [ { "origin": [-1, 7, 7], "size": [2, 3, 10], "uv": [24, 21] } ] },
+				{ "name": "r_leg_1", "parent": "body", "pivot": [-2, 5, -4], "cubes": [ { "origin": [-3, 0, -5], "size": [2, 7, 2], "uv": [0, 21] } ] },
+				{ "name": "r_leg_2", "parent": "body", "pivot": [-2, 5, 6], "cubes": [ { "origin": [-3, 0, 5], "size": [2, 7, 2], "uv": [22, 34] } ] },
+				{ "name": "l_leg1", "parent": "body", "pivot": [2, 5, -4], "cubes": [ { "origin": [1, 0, -5], "size": [2, 7, 2], "uv": [14, 21] } ] },
+				{ "name": "l_leg2", "parent": "body", "pivot": [2, 5, 6], "cubes": [ { "origin": [1, 0, 5], "size": [2, 7, 2], "uv": [22, 21] } ] }
+			]
+		}
+	]
+}

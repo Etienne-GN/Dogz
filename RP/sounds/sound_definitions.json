@@ -1,0 +1,18 @@
+{
+	"format_version": "1.14.0",
+	"sound_definitions": {
+		"mob.chihuahua.bark": {
+			"category": "neutral",
+			"sounds": [
+				"sounds/entity/chihuahua/bark"
+			]
+		},
+		"mob.chihuahua.growl": {
+			"category": "neutral",
+			"sounds": [
+				"sounds/entity/chihuahua/growl0",
+				"sounds/entity/chihuahua/growl1"
+			]
+		}
+	}
+}

@@ -1,0 +1,101 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "goodboy:retriever",
+			"is_spawnable": true, "is_summonable": true, "is_experimental": false
+		},
+		"component_groups": {
+			"goodboy:wild": {
+				"minecraft:tameable": { "probability": 0.33, "tame_items": [ "bone" ], "tame_event": { "event": "minecraft:on_tame", "target": "self" } },
+				"minecraft:behavior.tempt": { "priority": 4, "speed_multiplier": 1.2, "items": [ "bone", "beef", "cooked_beef", "chicken", "cooked_chicken", "porkchop", "cooked_porkchop", "muttonRaw", "muttonCooked", "rabbit", "cooked_rabbit", "rotten_flesh" ] }
+			},
+			"goodboy:tamed": {
+				"minecraft:is_tamed": {},
+				"minecraft:behavior.owner_hurt_by_target": { "priority": 1 },
+				"minecraft:behavior.owner_hurt_target": { "priority": 2 },
+				"minecraft:behavior.sit": { "priority": 5 },
+				"minecraft:behavior.stay_while_sitting": { "priority": 3 },
+				"minecraft:sittable": { "sit_event": { "event": "goodboy:on_sit", "target": "self" }, "stand_event": { "event": "goodboy:on_stand", "target": "self" } },
+				"minecraft:leashable": { "soft_distance": 2.0, "hard_distance": 4.0, "max_distance": 10.0 },
+				"minecraft:breedable": { "require_tame": true, "breeds_with": [ { "mate_type": "goodboy:retriever", "baby_type": "goodboy:retriever", "breed_items": [ "beef", "cooked_beef", "chicken", "cooked_chicken", "porkchop", "cooked_porkchop" ] } ] },
+				"minecraft:colorable": { "default_color": "red" },
+				"minecraft:healable": { "items": [ { "item": "beef", "heal_amount": 2 }, { "item": "cooked_beef", "heal_amount": 4 }, { "item": "chicken", "heal_amount": 2 }, { "item": "cooked_chicken", "heal_amount": 4 }, { "item": "porkchop", "heal_amount": 2 }, { "item": "cooked_porkchop", "heal_amount": 4 }, { "item": "muttonRaw", "heal_amount": 2 }, { "item": "muttonCooked", "heal_amount": 4 }, { "item": "rabbit", "heal_amount": 2 }, { "item": "cooked_rabbit", "heal_amount": 4 }, { "item": "rotten_flesh", "heal_amount": 2 } ] },
+				"minecraft:interact": {
+					"interactions": [
+						{ "on_interact": { "filters": { "all_of": [ { "test": "is_owner", "subject": "other", "value": true }, { "test": "is_sneaking", "subject": "other", "value": true }, { "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_sheared" } ] }, "event": "goodboy:lay_down" }, "interact_text": "action.interact.laydown" },
+						{ "on_interact": { "filters": { "all_of": [ { "test": "is_owner", "subject": "other", "value": true }, { "test": "is_sneaking", "subject": "other", "value": true }, { "test": "has_component", "subject": "self", "operator": "==", "value": "minecraft:is_sheared" } ] }, "event": "goodboy:stand_up" }, "interact_text": "action.interact.stand" }
+					]
+				},
+				"minecraft:entity_sensor": {
+					"sensor_range": 16.0, "relative_range": false, "require_all": false,
+					"event_filters": { "all_of": [ 
+						{ "test": "is_family", "subject": "other", "value": "monster" }, 
+						{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_sitting" }, 
+						{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_sheared" }, 
+						{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_stunned" }
+					] },
+					"event": "goodboy:bark_start"
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 4, "must_see": true,
+					"entity_types": [ { "filters": { "all_of": [ { "test": "is_family", "subject": "other", "value": "monster" }, { "test": "is_family", "subject": "other", "operator": "!=", "value": "creeper" }, { "test": "is_family", "subject": "other", "operator": "!=", "value": "sheep" } ] }, "max_dist": 16 } ]
+				},
+				"minecraft:behavior.melee_attack": { "priority": 3 }
+			},
+			"goodboy:follow_ai": {
+				"minecraft:behavior.follow_owner": { "priority": 1, "speed_multiplier": 1.5, "start_distance": 5.0, "stop_distance": 2.0 },
+				"minecraft:behavior.random_stroll": { "priority": 7, "speed_multiplier": 0.8 }
+			},
+			"goodboy:sitting": { "minecraft:is_sitting": {}, "minecraft:behavior.stay_while_sitting": { "priority": 1 } },
+			"goodboy:laying": { "minecraft:is_sheared": {}, "minecraft:is_sitting": {}, "minecraft:behavior.stay_while_sitting": { "priority": 1 } },
+			"goodboy:downed": { "minecraft:health": { "value": 1, "max": 20 }, "minecraft:movement": { "value": 0.0 }, "minecraft:attack": { "damage": 0 }, "minecraft:damage_sensor": { "triggers": { "on_damage": { "deals_damage": false } } } },
+			"goodboy:bark_lock": { "minecraft:is_stunned": {} },
+			"goodboy:bark_phase_1": { "minecraft:timer": { "time": 0.25, "time_down_event": { "event": "goodboy:bark_2", "target": "self" } } },
+			"goodboy:bark_phase_2": { "minecraft:timer": { "time": 0.25, "time_down_event": { "event": "goodboy:bark_3", "target": "self" } } },
+			"goodboy:bark_cooldown": { "minecraft:timer": { "time": 3.0, "time_down_event": { "event": "goodboy:bark_reset", "target": "self" } } }
+		},
+		"components": {
+			"minecraft:type_family": { "family": [ "wolf", "dog", "mob" ] },
+			"minecraft:health": { "value": 20, "max": 20 },
+			"minecraft:nameable": { "always_show": true, "allow_name_tag_renaming": true },
+			"minecraft:attack": { "damage": 4 },
+			"minecraft:movement": { "value": 0.3 },
+			"minecraft:navigation.walk": { "can_path_over_water": true, "avoid_damage_blocks": true, "can_jump": true },
+			"minecraft:movement.basic": {}, "minecraft:jump.static": {}, "minecraft:can_climb": {}, "minecraft:physics": {},
+			"minecraft:pushable": { "is_pushable": true },
+			"minecraft:collision_box": { "width": 0.6, "height": 0.85 },
+			"minecraft:behavior.float": { "priority": 0 },
+			"minecraft:behavior.look_at_player": { "priority": 8, "look_distance": 8.0 },
+			"minecraft:behavior.random_look_around": { "priority": 9 },
+			"minecraft:damage_sensor": { "triggers": [ { "on_damage": { "filters": { "all_of": [ { "test": "is_tamed" }, { "test": "has_health", "operator": "<=", "value": 3 }, { "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_baby" } ] }, "event": "goodboy:enter_downed" }, "deals_damage": false }, { "on_damage": { "filters": { "all_of": [ { "test": "is_tamed" }, { "test": "has_component", "subject": "self", "operator": "==", "value": "minecraft:is_baby" } ] }, "deals_damage": false } } ] }
+		},
+		"events": {
+			"minecraft:entity_spawned": { "add": { "component_groups": [ "goodboy:wild" ] } },
+			"minecraft:on_tame": { "remove": { "component_groups": [ "goodboy:wild" ] }, "add": { "component_groups": [ "goodboy:tamed", "goodboy:follow_ai" ] } },
+			"goodboy:on_sit": { "remove": { "component_groups": [ "goodboy:follow_ai", "goodboy:laying" ] }, "add": { "component_groups": [ "goodboy:sitting" ] } },
+			"goodboy:on_stand": { "remove": { "component_groups": [ "goodboy:sitting", "goodboy:laying" ] }, "add": { "component_groups": [ "goodboy:follow_ai" ] } },
+			"goodboy:lay_down": { "remove": { "component_groups": [ "goodboy:follow_ai", "goodboy:sitting" ] }, "add": { "component_groups": [ "goodboy:laying" ] } },
+			"goodboy:stand_up": { "remove": { "component_groups": [ "goodboy:laying" ] }, "add": { "component_groups": [ "goodboy:follow_ai" ] } },
+			"goodboy:enter_downed": { "remove": { "component_groups": [ "goodboy:follow_ai", "goodboy:sitting", "goodboy:laying" ] }, "add": { "component_groups": [ "goodboy:downed" ] } },
+			"minecraft:on_heal": { "remove": { "component_groups": [ "goodboy:downed" ] }, "add": { "component_groups": [ "goodboy:follow_ai" ] } },
+			"goodboy:bark_start": { 
+				"add": { "component_groups": [ "goodboy:bark_lock", "goodboy:bark_phase_1" ] }, 
+				"queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 0.5 1" ] } 
+			},
+			"goodboy:bark_2": { 
+				"remove": { "component_groups": [ "goodboy:bark_phase_1" ] }, 
+				"add": { "component_groups": [ "goodboy:bark_phase_2" ] }, 
+				"queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 0.5 1" ] } 
+			},
+			"goodboy:bark_3": { 
+				"remove": { "component_groups": [ "goodboy:bark_phase_2" ] }, 
+				"add": { "component_groups": [ "goodboy:bark_cooldown" ] }, 
+				"queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 0.5 1" ] } 
+			},
+			"goodboy:bark_reset": { 
+				"remove": { "component_groups": [ "goodboy:bark_lock", "goodboy:bark_cooldown" ] } 
+			}
+		}
+	}
+}

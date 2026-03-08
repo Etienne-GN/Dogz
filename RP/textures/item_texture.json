@@ -1,0 +1,9 @@
+{
+	"resource_pack_name": "Good Boy RP",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"dog_toy": {
+			"textures": "textures/items/dog_toy"
+		}
+	}
+}

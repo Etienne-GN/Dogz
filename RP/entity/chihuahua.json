@@ -1,0 +1,27 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "goodboy:chihuahua",
+      "materials": { "default": "entity_alphatest" },
+      "textures": { "default": "textures/entity/chihuahua/brown" },
+      "geometry": { "default": "geometry.goodboy.chihuahua" },
+      "animations": {
+        "walk": "animation.chihuahua.walk",
+        "sit": "animation.chihuahua.sit",
+        "lay_down": "animation.chihuahua.lay_down",
+        "look": "animation.common.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          { "walk": "query.modified_move_speed > 0.1 && !query.is_sitting" },
+          { "sit": "query.is_sitting && !query.is_sheared" },
+          { "lay_down": "query.is_sheared" }
+        ]
+      },
+      "render_controllers": [ "controller.render.dog" ],
+      "spawn_egg": { "base_color": "#8c603e", "overlay_color": "#2c1c14" }
+    }
+  }
+}
