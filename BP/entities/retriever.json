@@ -12,8 +12,6 @@
 			},
 			"goodboy:tamed": {
 				"minecraft:is_tame": {},
-				"minecraft:behavior.sit": { "priority": 5 },
-				"minecraft:behavior.stay_while_sitting": { "priority": 3 },
 				"minecraft:sittable": { "sit_event": { "event": "goodboy:on_sit", "target": "self" }, "stand_event": { "event": "goodboy:on_stand", "target": "self" } },
 				"minecraft:leashable": { "soft_distance": 2.0, "hard_distance": 4.0, "max_distance": 10.0 },
 				"minecraft:breedable": { "require_tame": true, "breeds_with": [ { "mate_type": "goodboy:retriever", "baby_type": "goodboy:retriever", "breed_items": [ "beef", "cooked_beef", "chicken", "cooked_chicken", "porkchop", "cooked_porkchop" ] } ] },
@@ -52,12 +50,14 @@
 			"goodboy:sitting": { 
 				"minecraft:is_baby": {}, 
 				"minecraft:movement": { "value": 0.0 },
+				"minecraft:behavior.sit": { "priority": 1 },
 				"minecraft:behavior.stay_while_sitting": { "priority": 1 } 
 			},
 			"goodboy:laying": { 
 				"minecraft:is_sheared": {}, 
 				"minecraft:is_baby": {}, 
 				"minecraft:movement": { "value": 0.0 },
+				"minecraft:behavior.sit": { "priority": 1 },
 				"minecraft:behavior.stay_while_sitting": { "priority": 1 } 
 			},
 			"goodboy:downed": { 
@@ -89,12 +89,12 @@
 		"events": {
 			"minecraft:entity_spawned": { "add": { "component_groups": [ "goodboy:wild" ] } },
 			"minecraft:on_tame": { "remove": { "component_groups": [ "goodboy:wild" ] }, "add": { "component_groups": [ "goodboy:tamed", "goodboy:follow_ai", "goodboy:attack_ai" ] } },
-			"goodboy:on_sit": { "remove": { "component_groups": [ "goodboy:follow_ai", "goodboy:laying", "goodboy:attack_ai" ] }, "add": { "component_groups": [ "goodboy:sitting" ] } },
-			"goodboy:on_stand": { "remove": { "component_groups": [ "goodboy:sitting", "goodboy:laying" ] }, "add": { "component_groups": [ "goodboy:follow_ai", "goodboy:attack_ai" ] } },
-			"goodboy:lay_down": { "remove": { "component_groups": [ "goodboy:follow_ai", "goodboy:sitting", "goodboy:attack_ai" ] }, "add": { "component_groups": [ "goodboy:laying" ] } },
-			"goodboy:stand_up": { "remove": { "component_groups": [ "goodboy:laying" ] }, "add": { "component_groups": [ "goodboy:follow_ai", "goodboy:attack_ai" ] } },
-			"goodboy:enter_downed": { "remove": { "component_groups": [ "goodboy:follow_ai", "goodboy:sitting", "goodboy:laying", "goodboy:attack_ai" ] }, "add": { "component_groups": [ "goodboy:downed" ] } },
-			"minecraft:on_heal": { "remove": { "component_groups": [ "goodboy:downed" ] }, "add": { "component_groups": [ "goodboy:follow_ai", "goodboy:attack_ai" ] } },
+			"goodboy:on_sit": { "remove": { "component_groups": [ "goodboy:follow_ai", "goodboy:laying", "goodboy:attack_ai", "goodboy:sitting", "goodboy:downed" ] }, "add": { "component_groups": [ "goodboy:sitting" ] } },
+			"goodboy:on_stand": { "remove": { "component_groups": [ "goodboy:sitting", "goodboy:laying", "goodboy:downed" ] }, "add": { "component_groups": [ "goodboy:follow_ai", "goodboy:attack_ai" ] } },
+			"goodboy:lay_down": { "remove": { "component_groups": [ "goodboy:follow_ai", "goodboy:sitting", "goodboy:attack_ai", "goodboy:laying", "goodboy:downed" ] }, "add": { "component_groups": [ "goodboy:laying" ] } },
+			"goodboy:stand_up": { "remove": { "component_groups": [ "goodboy:laying", "goodboy:sitting", "goodboy:downed" ] }, "add": { "component_groups": [ "goodboy:follow_ai", "goodboy:attack_ai" ] } },
+			"goodboy:enter_downed": { "remove": { "component_groups": [ "goodboy:follow_ai", "goodboy:sitting", "goodboy:laying", "goodboy:attack_ai", "goodboy:downed" ] }, "add": { "component_groups": [ "goodboy:downed" ] } },
+			"minecraft:on_heal": { "remove": { "component_groups": [ "goodboy:downed", "goodboy:sitting", "goodboy:laying" ] }, "add": { "component_groups": [ "goodboy:follow_ai", "goodboy:attack_ai" ] } },
 			"goodboy:bark_start": { 
 				"add": { "component_groups": [ "goodboy:bark_lock", "goodboy:bark_phase_1" ] }, 
 				"queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 0.5 1" ] } 
