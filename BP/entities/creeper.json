@@ -1,5 +1,5 @@
 {
-  "format_version": "1.16.0",
+  "format_version": "1.20.0",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:creeper",
@@ -7,7 +7,21 @@
       "is_summonable": true,
       "is_experimental": false
     },
+    "component_groups": {
+      "minecraft:exploding": {
+        "minecraft:explode": {
+          "fuse_length": 1.5,
+          "power": 3,
+          "causes_fire": false,
+          "destroy_affected_by_griefing": true
+        },
+        "minecraft:on_fire": {
+          "on_fire_time": 30
+        }
+      }
+    },
     "components": {
+      "minecraft:is_tamed": { "filters": { "test": "is_family", "subject": "other", "value": "never" } },
       "minecraft:type_family": { "family": [ "creeper", "monster", "mob" ] },
       "minecraft:breathable": { "total_supply": 15, "suffocate_time": 0 },
       "minecraft:health": { "value": 20, "max": 20 },
@@ -25,7 +39,7 @@
         "priority": 1,
         "entity_types": [
           {
-            "filters": { "any_of": [ { "test": "is_family", "subject": "other", "value": "wolf" }, { "test": "is_family", "subject": "other", "value": "ocelot" }, { "test": "is_family", "subject": "other", "value": "cat" } ] },
+            "filters": { "any_of": [ { "test": "is_family", "subject": "other", "value": "wolf" }, { "test": "is_family", "subject": "other", "value": "dog" }, { "test": "is_family", "subject": "other", "value": "ocelot" }, { "test": "is_family", "subject": "other", "value": "cat" } ] },
             "max_dist": 16,
             "walk_speed_multiplier": 1.0,
             "sprint_speed_multiplier": 1.2
