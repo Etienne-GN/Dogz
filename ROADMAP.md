@@ -1,4 +1,4 @@
-## 🐕 Good Boy (Main Mod)
+## 🐕 Dogz (Main Mod)
 *High-fidelity dogs with advanced AI and survival mechanics.*
 
 ### 🟢 Verified
@@ -11,9 +11,11 @@
 * **Nametags**: Permanent naming system is functional.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
+### 🔵 To Test
+* **Creeper Repellent (v1.4.11)**: Verify that creepers act normally (hostile to players) but flee when a dog barks.
+
 ### 🟡 Needs Refinement
 * **Immortal/Revival Mechanic**: Logic is not yet reliable (Downed state needs better health-lock).
-* **Creeper Repellent**: Fear/flee behavior confirmed in code but needs survival verification.
 * **Movement Lock (Fixed)**: Movement set to 0.0 while sitting/laying to prevent sliding.
 * **Attack Cancellation (Fixed)**: Dogs now forget attack targets when commanded to sit.
 
