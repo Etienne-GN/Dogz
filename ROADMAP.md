@@ -14,6 +14,8 @@
 ### 🟡 Needs Refinement
 * **Immortal/Revival Mechanic**: Logic is not yet reliable (Downed state needs better health-lock).
 * **Creeper Repellent**: Fear/flee behavior confirmed in code but needs survival verification.
+* **Movement Lock (Fixed)**: Movement set to 0.0 while sitting/laying to prevent sliding.
+* **Attack Cancellation (Fixed)**: Dogs now forget attack targets when commanded to sit.
 
 ### ⚪ To-Do
 1. **Defense Mode when Attached**: Dogs guard a small radius when tied to a fence.
