@@ -11,7 +11,7 @@
 				"minecraft:behavior.tempt": { "priority": 4, "speed_multiplier": 1.2, "items": [ "bone", "beef", "cooked_beef", "chicken", "cooked_chicken", "porkchop", "cooked_porkchop", "muttonRaw", "muttonCooked", "rabbit", "cooked_rabbit", "rotten_flesh" ] }
 			},
 			"goodboy:tamed": {
-				"minecraft:is_tame": {},
+				"minecraft:is_tamed": {},
 				"minecraft:sittable": { "sit_event": { "event": "goodboy:on_sit", "target": "self" }, "stand_event": { "event": "goodboy:on_stand", "target": "self" } },
 				"minecraft:leashable": { "soft_distance": 2.0, "hard_distance": 4.0, "max_distance": 10.0 },
 				"minecraft:breedable": { "require_tame": true, "breeds_with": [ { "mate_type": "goodboy:retriever", "baby_type": "goodboy:retriever", "breed_items": [ "beef", "cooked_beef", "chicken", "cooked_chicken", "porkchop", "cooked_porkchop" ] } ] },
@@ -85,7 +85,7 @@
 			"minecraft:behavior.float": { "priority": 0 },
 			"minecraft:behavior.look_at_player": { "priority": 8, "look_distance": 8.0 },
 			"minecraft:behavior.random_look_around": { "priority": 9 },
-			"minecraft:damage_sensor": { "triggers": [ { "on_damage": { "filters": { "all_of": [ { "test": "is_tame" }, { "test": "has_health", "operator": "<=", "value": 3 }, { "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_baby" } ] }, "event": "goodboy:enter_downed" }, "deals_damage": false }, { "on_damage": { "filters": { "all_of": [ { "test": "is_tame" }, { "test": "has_component", "subject": "self", "operator": "==", "value": "minecraft:is_baby" } ] }, "deals_damage": false } } ] }
+			"minecraft:damage_sensor": { "triggers": [ { "on_damage": { "filters": { "all_of": [ { "test": "is_tamed" }, { "test": "has_health", "operator": "<=", "value": 3 }, { "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_baby" } ] }, "event": "goodboy:enter_downed" }, "deals_damage": false }, { "on_damage": { "filters": { "all_of": [ { "test": "is_tamed" }, { "test": "has_component", "subject": "self", "operator": "==", "value": "minecraft:is_baby" } ] }, "deals_damage": false } } ] }
 		},
 		"events": {
 			"minecraft:entity_spawned": { "add": { "component_groups": [ "goodboy:wild", "goodboy:movement_active" ] } },
