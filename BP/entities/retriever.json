@@ -69,7 +69,10 @@
 				"minecraft:attack": { "damage": 0 }, 
 				"minecraft:damage_sensor": { "triggers": { "on_damage": { "deals_damage": false } } } 
 			},
-			"goodboy:bark_lock": { "minecraft:is_stunned": {} },
+			"goodboy:bark_lock": { 
+				"minecraft:is_stunned": {},
+				"minecraft:type_family": { "family": [ "wolf", "dog", "mob", "barking" ] }
+			},
 			"goodboy:bark_phase_1": { "minecraft:timer": { "time": 0.25, "time_down_event": { "event": "goodboy:bark_2", "target": "self" } } },
 			"goodboy:bark_phase_2": { "minecraft:timer": { "time": 0.25, "time_down_event": { "event": "goodboy:bark_3", "target": "self" } } },
 			"goodboy:bark_cooldown": { "minecraft:timer": { "time": 3.0, "time_down_event": { "event": "goodboy:bark_reset", "target": "self" } } }
