@@ -6,18 +6,18 @@
 				"default": {
 					"animations": [
 						{ "look": "query.is_alive" },
-						{ "walk": "query.modified_move_speed > 0.1 && !query.is_sitting && !query.is_sheared && !query.is_baby" },
-						{ "sit": "query.is_sitting && !query.is_sheared && !query.is_baby" },
-						{ "lay_down": "query.is_sheared || query.is_baby" }
+						{ "walk": "query.modified_move_speed > 0.1 && !query.is_baby && !query.is_sheared" },
+						{ "sit": "query.is_baby && !query.is_sheared" },
+						{ "lay_down": "query.is_sheared && query.is_baby" }
 					],
 					"transitions": [
-						{ "downed": "query.is_baby" }
+						{ "downed": "query.health <= 3 && query.is_tamed" }
 					]
 				},
 				"downed": {
 					"animations": [ "lay_down" ],
 					"transitions": [
-						{ "default": "!query.is_baby" }
+						{ "default": "query.health > 3" }
 					]
 				}
 			}

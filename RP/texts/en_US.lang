@@ -1,6 +1,5 @@
 entity.goodboy:retriever.name=Retriever
 entity.goodboy:chihuahua.name=Chihuahua
-item.goodboy:dog_toy.name=Dog Toy
 item.spawn_egg.entity.goodboy:retriever.name=Spawn Retriever
 item.spawn_egg.entity.goodboy:chihuahua.name=Spawn Chihuahua
 action.interact.laydown=Lay Down
