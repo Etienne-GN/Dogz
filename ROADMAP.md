@@ -2,6 +2,8 @@
 *High-fidelity dogs with advanced AI and survival mechanics.*
 
 ### 🟢 Verified
+* **Movement Lock (v1.4.10)**: Movement set to 0.0 while sitting/laying to prevent sliding.
+* **Attack Cancellation (v1.4.10)**: Dogs now forget attack targets when commanded to sit.
 * **Stable Animations**: Sit, Stand, and Lay Down poses (Base visual engine).
 * **Cross-Action Logic**: Smooth transitions between all states (Sit/Lay/Stand).
 * **Navigation**: Dogs successfully jump 1-block obstacles and climb.
@@ -16,8 +18,6 @@
 
 ### 🟡 Needs Refinement
 * **Immortal/Revival Mechanic**: Logic is not yet reliable (Downed state needs better health-lock).
-* **Movement Lock (Fixed)**: Movement set to 0.0 while sitting/laying to prevent sliding.
-* **Attack Cancellation (Fixed)**: Dogs now forget attack targets when commanded to sit.
 
 ### ⚪ To-Do
 1. **Defense Mode when Attached**: Dogs guard a small radius when tied to a fence.
