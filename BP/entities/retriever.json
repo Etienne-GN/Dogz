@@ -54,11 +54,12 @@
 				"minecraft:behavior.random_stroll": { "priority": 7, "speed_multiplier": 0.8 }
 			},
 			"goodboy:sitting": { 
-				"minecraft:is_sheared": {}, 
+				"minecraft:is_baby": {}, 
 				"minecraft:behavior.sit": { "priority": 1 },
 				"minecraft:behavior.stay_while_sitting": { "priority": 1 } 
 			},
 			"goodboy:laying": { 
+				"minecraft:is_sheared": {}, 
 				"minecraft:is_baby": {}, 
 				"minecraft:behavior.sit": { "priority": 1 },
 				"minecraft:behavior.stay_while_sitting": { "priority": 1 } 
