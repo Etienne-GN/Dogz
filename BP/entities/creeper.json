@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:creeper",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:behavior.avoid_mob_type": {
+        "priority": 3,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "dog" },
+                { "test": "is_family", "subject": "other", "value": "barking" },
+                { "test": "is_family", "subject": "other", "value": "ocelot" },
+                { "test": "is_family", "subject": "other", "value": "cat" }
+              ]
+            },
+            "max_dist": 8,
+            "walk_speed_multiplier": 1.0,
+            "sprint_speed_multiplier": 1.2
+          }
+        ]
+      }
+    }
+  }
+}
