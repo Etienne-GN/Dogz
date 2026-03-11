@@ -18,24 +18,21 @@
 				"minecraft:healable": { "items": [ { "item": "beef", "heal_amount": 2 }, { "item": "cooked_beef", "heal_amount": 4 }, { "item": "chicken", "heal_amount": 2 }, { "item": "cooked_chicken", "heal_amount": 4 }, { "item": "porkchop", "heal_amount": 2 }, { "item": "cooked_porkchop", "heal_amount": 4 }, { "item": "muttonRaw", "heal_amount": 2 }, { "item": "muttonCooked", "heal_amount": 4 }, { "item": "rabbit", "heal_amount": 2 }, { "item": "cooked_rabbit", "heal_amount": 4 }, { "item": "rotten_flesh", "heal_amount": 2 } ] },
 				"minecraft:interact": {
 					"interactions": [
-						{ "on_interact": { "filters": { "all_of": [ { "test": "is_owner", "subject": "other", "value": true }, { "test": "is_sneaking", "subject": "other", "value": true }, { "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_baby" } ] }, "event": "goodboy:lay_down" }, "interact_text": "action.interact.laydown" },
-						{ "on_interact": { "filters": { "all_of": [ { "test": "is_owner", "subject": "other", "value": true }, { "test": "is_sneaking", "subject": "other", "value": true }, { "test": "has_component", "subject": "self", "operator": "==", "value": "minecraft:is_baby" } ] }, "event": "goodboy:stand_up" }, "interact_text": "action.interact.stand" }
+						{ "on_interact": { "filters": { "all_of": [ { "test": "is_owner", "subject": "other", "value": true }, { "test": "is_sneaking", "subject": "other", "value": true }, { "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_sheared" } ] }, "event": "goodboy:lay_down" }, "interact_text": "action.interact.laydown" },
+						{ "on_interact": { "filters": { "all_of": [ { "test": "is_owner", "subject": "other", "value": true }, { "test": "is_sneaking", "subject": "other", "value": true }, { "test": "has_component", "subject": "self", "operator": "==", "value": "minecraft:is_sheared" } ] }, "event": "goodboy:stand_up" }, "interact_text": "action.interact.stand" }
 					]
 				},
-												"minecraft:entity_sensor": {
-													"sensor_range": 16.0, "relative_range": false, "require_all": false,
-													"event_filters": { "all_of": [ 
-														{ "any_of": [
-															{ "test": "is_family", "subject": "other", "value": "monster" },
-															{ "test": "is_family", "subject": "other", "value": "creeper" }
-														]},
-														{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_sheared" }, 
-														{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_baby" }, 
-														{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_stunned" }
-													] },
-													"event": "goodboy:bark_start"
-												}
-											},
+				"minecraft:entity_sensor": {
+					"sensor_range": 16.0, "relative_range": false, "require_all": false,
+					"event_filters": { "all_of": [ 
+						{ "any_of": [ { "test": "is_family", "subject": "other", "value": "monster" }, { "test": "is_family", "subject": "other", "value": "creeper" } ] },
+						{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_sheared" }, 
+						{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_baby" }, 
+						{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_stunned" }
+					] },
+					"event": "goodboy:bark_start"
+				}
+			},
 			"goodboy:attack_ai": {
 				"minecraft:behavior.owner_hurt_by_target": { "priority": 1 },
 				"minecraft:behavior.owner_hurt_target": { "priority": 2 },
@@ -62,8 +59,8 @@
 				"minecraft:behavior.stay_while_sitting": { "priority": 1 } 
 			},
 			"goodboy:laying": { 
+				"minecraft:is_baby": {},
 				"minecraft:is_sheared": {}, 
-				"minecraft:is_baby": {}, 
 				"minecraft:behavior.sit": { "priority": 1 },
 				"minecraft:behavior.stay_while_sitting": { "priority": 1 } 
 			},

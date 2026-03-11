@@ -43,15 +43,16 @@
       }
     },
     "components": {
-      "minecraft:is_tamed": {
-        "filters": { "test": "is_family", "subject": "other", "value": "never" }
-      },
       "minecraft:type_family": {
         "family": [ "creeper", "monster", "mob" ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
         "suffocate_time": 0
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.7
       },
       "minecraft:health": {
         "value": 20,
@@ -75,6 +76,16 @@
         "is_pushable": true,
         "is_pushable_by_piston": true
       },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/creeper.json"
+      },
+      "minecraft:explode": {
+        "fuse_length": 1.5,
+        "fuse_lit": false,
+        "power": 3,
+        "causes_fire": false,
+        "destroy_affected_by_griefing": true
+      },
       "minecraft:behavior.float": {
         "priority": 0
       },
@@ -90,7 +101,7 @@
                 { "test": "is_family", "subject": "other", "value": "cat" }
               ]
             },
-            "max_dist": 16,
+            "max_dist": 12,
             "walk_speed_multiplier": 1.0,
             "sprint_speed_multiplier": 1.2
           }
@@ -98,7 +109,7 @@
       },
       "minecraft:behavior.swell": {
         "priority": 2,
-        "start_distance": 3.0,
+        "start_distance": 2.5,
         "stop_distance": 6.0
       },
       "minecraft:behavior.melee_attack": {
@@ -106,9 +117,15 @@
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 4,
+        "must_see": true,
+        "reselect_targets": true,
         "entity_types": [
           {
-            "filters": { "test": "is_family", "subject": "other", "value": "player" },
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
             "max_dist": 16
           }
         ]
@@ -126,20 +143,47 @@
       },
       "minecraft:behavior.random_look_around": {
         "priority": 8
-      },
-      "minecraft:explode": {
-        "fuse_length": 1.5,
-        "power": 3,
-        "causes_fire": false,
-        "destroy_affected_by_griefing": true
       }
     },
     "events": {
+      "minecraft:entity_spawned": {},
       "minecraft:start_exploding": {
-        "add": { "component_groups": [ "minecraft:on_prime" ] }
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_component",
+              "operator": "!=",
+              "value": "minecraft:is_charged"
+            },
+            "add": {
+              "component_groups": [ "minecraft:on_prime" ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_component",
+              "value": "minecraft:is_charged"
+            },
+            "add": {
+              "component_groups": [ "minecraft:charged_on_prime" ]
+            }
+          }
+        ]
+      },
+      "minecraft:start_exploding_forced": {
+        "add": {
+          "component_groups": [ "minecraft:on_prime" ]
+        }
       },
       "minecraft:stop_exploding": {
-        "remove": { "component_groups": [ "minecraft:on_prime", "minecraft:charged_on_prime" ] }
+        "remove": {
+          "component_groups": [ "minecraft:on_prime", "minecraft:charged_on_prime" ]
+        }
+      },
+      "minecraft:become_charged": {
+        "add": {
+          "component_groups": [ "minecraft:is_charged" ]
+        }
       }
     }
   }
