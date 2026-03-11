@@ -22,17 +22,20 @@
 						{ "on_interact": { "filters": { "all_of": [ { "test": "is_owner", "subject": "other", "value": true }, { "test": "is_sneaking", "subject": "other", "value": true }, { "test": "has_component", "subject": "self", "operator": "==", "value": "minecraft:is_baby" } ] }, "event": "goodboy:stand_up" }, "interact_text": "action.interact.stand" }
 					]
 				},
-				"minecraft:entity_sensor": {
-					"sensor_range": 16.0, "relative_range": false, "require_all": false,
-					"event_filters": { "all_of": [ 
-						{ "test": "is_family", "subject": "other", "value": "monster" }, 
-						{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_sheared" }, 
-						{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_baby" }, 
-						{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_stunned" }
-					] },
-					"event": "goodboy:bark_start"
-				}
-			},
+												"minecraft:entity_sensor": {
+													"sensor_range": 16.0, "relative_range": false, "require_all": false,
+													"event_filters": { "all_of": [ 
+														{ "any_of": [
+															{ "test": "is_family", "subject": "other", "value": "monster" },
+															{ "test": "is_family", "subject": "other", "value": "creeper" }
+														]},
+														{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_sheared" }, 
+														{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_baby" }, 
+														{ "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_stunned" }
+													] },
+													"event": "goodboy:bark_start"
+												}
+											},
 			"goodboy:attack_ai": {
 				"minecraft:behavior.owner_hurt_by_target": { "priority": 1 },
 				"minecraft:behavior.owner_hurt_target": { "priority": 2 },
