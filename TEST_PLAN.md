@@ -18,6 +18,7 @@ Follow these steps to confirm all features are working correctly.
 ## 🧪 3. Combat & Protection
 - [ ] **Owner Defense**: Attack a mob (e.g., a pig). Does the dog attack it?
 - [ ] **Alert**: Spawn a Zombie 10 blocks away. Does the dog bark 3 times?
+- [ ] **Creeper Hostility**: Spawn a Creeper with NO dog around. Does it track and explode near the player?
 - [ ] **Creeper Fear**: Spawn a Creeper near the dog. Does the Creeper run away?
 - [ ] **Creeper Safety**: Attack a Creeper. Does the dog ignore your command to attack it? (Expected: Dog should NOT attack creepers).
 

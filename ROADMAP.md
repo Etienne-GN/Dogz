@@ -14,9 +14,7 @@
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
-* **Creeper Repellent (v1.4.11)**: Verify that creepers act normally (hostile to players) but flee when a dog barks.
-
-### 🟡 Needs Refinement
+* **Creeper Repellent (v1.4.20)**: Verify that creepers act normally (hostile to players) but flee when a dog barks.
 * **Immortal/Revival Mechanic**: Logic is not yet reliable (Downed state needs better health-lock).
 
 ### ⚪ To-Do

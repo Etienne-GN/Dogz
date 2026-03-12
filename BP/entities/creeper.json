@@ -7,8 +7,8 @@
       "is_summonable": true,
       "is_experimental": false
     },
-    "component_groups": {
 
+    "component_groups": {
       "minecraft:is_charged": {
         "minecraft:explode": {
           "fuse_length": 1.5,
@@ -48,38 +48,55 @@
 
     "components": {
       "minecraft:type_family": {
-        "family": [ "creeper", "monster", "mob" ]
+        "family": [
+          "creeper",
+          "monster",
+          "mob"
+        ]
       },
+
       "minecraft:breathable": {
         "total_supply": 15,
         "suffocate_time": 0
       },
+
       "minecraft:collision_box": {
         "width": 0.6,
         "height": 1.7
       },
+
       "minecraft:health": {
         "value": 20,
         "max": 20
       },
+
       "minecraft:attack": {
         "damage": 3
       },
+
       "minecraft:movement": {
         "value": 0.25
       },
+
+      "minecraft:follow_range": {
+        "value": 16
+      },
+
       "minecraft:navigation.walk": {
         "can_path_over_water": true,
         "avoid_damage_blocks": true
       },
+
       "minecraft:movement.basic": {},
       "minecraft:jump.static": {},
       "minecraft:can_climb": {},
       "minecraft:physics": {},
+
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
       },
+
       "minecraft:loot": {
         "table": "loot_tables/entities/creeper.json"
       },
@@ -94,10 +111,26 @@
           {
             "filters": {
               "any_of": [
-                { "test": "is_family", "subject": "other", "value": "dog" },
-                { "test": "is_family", "subject": "other", "value": "barking" },
-                { "test": "is_family", "subject": "other", "value": "ocelot" },
-                { "test": "is_family", "subject": "other", "value": "cat" }
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "dog"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "barking"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "ocelot"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "cat"
+                }
               ]
             },
             "max_dist": 12,
@@ -129,20 +162,27 @@
         ]
       },
 
+      "minecraft:behavior.move_to_target": {
+        "priority": 4,
+        "speed_multiplier": 1.0
+      },
+
       "minecraft:behavior.hurt_by_target": {
-        "priority": 4
+        "priority": 5
       },
 
       "minecraft:behavior.random_stroll": {
-        "priority": 5,
+        "priority": 6,
         "speed_multiplier": 1.0
       },
+
       "minecraft:behavior.look_at_player": {
-        "priority": 6,
-        "look_distance": 8.0
+        "priority": 7,
+        "look_distance": 8
       },
+
       "minecraft:behavior.random_look_around": {
-        "priority": 7
+        "priority": 8
       }
     },
 
@@ -158,7 +198,9 @@
               "value": "minecraft:is_charged"
             },
             "add": {
-              "component_groups": [ "minecraft:on_prime" ]
+              "component_groups": [
+                "minecraft:on_prime"
+              ]
             }
           },
           {
@@ -167,7 +209,9 @@
               "value": "minecraft:is_charged"
             },
             "add": {
-              "component_groups": [ "minecraft:charged_on_prime" ]
+              "component_groups": [
+                "minecraft:charged_on_prime"
+              ]
             }
           }
         ]
@@ -175,19 +219,26 @@
 
       "minecraft:start_exploding_forced": {
         "add": {
-          "component_groups": [ "minecraft:on_prime" ]
+          "component_groups": [
+            "minecraft:on_prime"
+          ]
         }
       },
 
       "minecraft:stop_exploding": {
         "remove": {
-          "component_groups": [ "minecraft:on_prime", "minecraft:charged_on_prime" ]
+          "component_groups": [
+            "minecraft:on_prime",
+            "minecraft:charged_on_prime"
+          ]
         }
       },
 
       "minecraft:become_charged": {
         "add": {
-          "component_groups": [ "minecraft:is_charged" ]
+          "component_groups": [
+            "minecraft:is_charged"
+          ]
         }
       }
     }
