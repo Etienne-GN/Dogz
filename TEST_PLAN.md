@@ -21,9 +21,11 @@ Follow these steps to confirm all features are working correctly.
 ## 🧪 3. Combat & Protection
 - [ ] **Owner Defense**: Attack a mob (e.g., a pig). Does the dog attack it?
 - [ ] **Alert**: Spawn a Zombie 10 blocks away. Does the dog bark 3 times?
-- [ ] **Creeper Hostility**: Spawn a Creeper with NO dog around. Does it track and explode near the player?
 - [ ] **Creeper Fear**: Spawn a Creeper near the dog. Does the Creeper run away?
 - [ ] **Creeper Safety**: Attack a Creeper. Does the dog ignore your command to attack it? (Expected: Dog should NOT attack creepers).
+- [ ] **Creeper Swelling (v2.0.1)**: Spawn a Creeper with NO dog around. Does it slow down and swell for 1.5s before exploding?
+- [ ] **Creeper Killable (v2.0.1)**: Can you kill a Creeper with a normal sword?
+- [ ] **Creeper Charged (v2.0.1)**: Use `/summon lightning_bolt` on a Creeper. Does it become charged? Does it still swell before exploding with power 6?
 
 ## 🧪 4. Immortality
 - [ ] **Downed State**: Let a monster hit the dog until it whines and lays down. Does it stop attacking? Is it moaning?
