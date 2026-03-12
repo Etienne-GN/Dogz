@@ -2,10 +2,10 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "goodboy:chihuahua",
+      "identifier": "dogz:chihuahua",
       "materials": { "default": "entity_alphatest" },
       "textures": { "default": "textures/entity/chihuahua/brown" },
-      "geometry": { "default": "geometry.goodboy.chihuahua" },
+      "geometry": { "default": "geometry.dogz.chihuahua" },
       "animations": {
         "walk": "animation.chihuahua.walk",
         "sit": "animation.chihuahua.sit",

@@ -2,10 +2,10 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "goodboy:retriever",
+      "identifier": "dogz:retriever",
       "materials": { "default": "entity_alphatest" },
       "textures": { "default": "textures/entity/retriever/golden" },
-      "geometry": { "default": "geometry.goodboy.retriever" },
+      "geometry": { "default": "geometry.dogz.retriever" },
       "animations": {
         "walk": "animation.retriever.walk",
         "sit": "animation.retriever.sit",

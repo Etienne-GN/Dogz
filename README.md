@@ -78,6 +78,12 @@ To create the `.mcaddon` file for testing:
 
 ## 📜 Changelog
 
+### [2.0.0] - Rebranding
+#### Changed
+- Rebranded from 'Good Boy' to 'Dogz'.
+- Updated namespace from 'goodboy:' to 'dogz:' in all entities, items, and resource files.
+- Version increment to 2.0.0.
+
 ### [1.4.28] - Active Development
 #### Fixed
 - Cleaned AI: Removed broken downed/immortal logic to restore stability.

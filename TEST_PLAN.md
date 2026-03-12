@@ -1,4 +1,4 @@
-# Good Boy v1.3.0: Verification Test Plan
+# Dogz v2.0.0: Verification Test Plan
 
 Follow these steps to confirm all features are working correctly.
 
