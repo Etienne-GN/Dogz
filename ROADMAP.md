@@ -14,7 +14,7 @@
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
-* **Creeper Repellent (v1.4.24)**: Improved AI with Priority 1 fleeing and Priority 2 player targeting using vanilla 1.21.0 components.
+* **Creeper Repellent (v1.4.25)**: Exact vanilla 1.16.0 schema base with Priority 1 dog fleeing added.
 * **Restricted State Transitions (v1.4.23)**: Prevent direct Sit <-> Lay transitions. Standing -> Sit/Lay, Sitting -> Stand, Laying -> Stand.
 * **Immortal/Revival Mechanic**: Logic is not yet reliable (Downed state needs better health-lock).
 2. **Defense Mode when Attached**: Dogs guard a small radius when tied to a fence.
