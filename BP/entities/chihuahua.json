@@ -8,7 +8,8 @@
 		"component_groups": {
 			"goodboy:wild": {
 				"minecraft:tameable": { "probability": 0.33, "tame_items": [ "bone" ], "tame_event": { "event": "minecraft:on_tame", "target": "self" } },
-				"minecraft:behavior.tempt": { "priority": 4, "speed_multiplier": 1.2, "items": [ "bone", "beef", "cooked_beef", "chicken", "cooked_chicken", "porkchop", "cooked_porkchop", "muttonRaw", "muttonCooked", "rabbit", "cooked_rabbit", "rotten_flesh" ] }
+				"minecraft:behavior.tempt": { "priority": 4, "speed_multiplier": 1.2, "items": [ "bone", "beef", "cooked_beef", "chicken", "cooked_chicken", "porkchop", "cooked_porkchop", "muttonRaw", "muttonCooked", "rabbit", "cooked_rabbit", "rotten_flesh" ] },
+				"minecraft:behavior.random_stroll": { "priority": 7, "speed_multiplier": 0.8 }
 			},
 			"goodboy:tamed_base": {
 				"minecraft:is_tame": {},
