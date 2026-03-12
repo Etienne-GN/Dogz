@@ -2,7 +2,7 @@
   "format_version": "1.20.0",
   "minecraft:entity": {
     "description": {
-      "identifier": "goodboy:chihuahua",
+      "identifier": "goodboy:retriever",
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false
@@ -36,7 +36,7 @@
         "minecraft:breedable": {
           "require_tame": true,
           "breeds_with": [
-            { "mate_type": "goodboy:chihuahua", "baby_type": "goodboy:chihuahua",
+            { "mate_type": "goodboy:retriever", "baby_type": "goodboy:retriever",
               "breed_items": [ "beef", "cooked_beef", "chicken", "cooked_chicken", "porkchop", "cooked_porkchop" ] }
           ]
         },
@@ -62,10 +62,10 @@
               "on_interact": {
                 "filters": {
                   "all_of": [
-                    { "test": "is_owner",       "subject": "other", "value": true },
-                    { "test": "is_sneaking",     "subject": "other", "value": true },
-                    { "test": "has_component",   "subject": "self",  "operator": "==", "value": "minecraft:is_baby" },
-                    { "test": "has_component",   "subject": "self",  "operator": "!=", "value": "minecraft:is_sheared" }
+                    { "test": "is_owner",     "subject": "other", "value": true },
+                    { "test": "is_sneaking",  "subject": "other", "value": true },
+                    { "test": "has_component","subject": "self",  "operator": "==", "value": "minecraft:is_baby" },
+                    { "test": "has_component","subject": "self",  "operator": "!=", "value": "minecraft:is_sheared" }
                   ]
                 },
                 "event": "goodboy:lay_down"
@@ -127,7 +127,7 @@
       },
 
       "goodboy:movement_active": {
-        "minecraft:movement": { "value": 0.315 },
+        "minecraft:movement": { "value": 0.3 },
         "minecraft:navigation.walk": {
           "can_path_over_water": true,
           "avoid_damage_blocks": true,
@@ -159,7 +159,7 @@
       },
 
       "goodboy:downed": {
-        "minecraft:health": { "value": 1, "max": 12 },
+        "minecraft:health": { "value": 1, "max": 20 },
         "minecraft:attack": { "damage": 0 },
         "minecraft:damage_sensor": {
           "triggers": { "on_damage": { "deals_damage": false } }
@@ -184,15 +184,15 @@
 
     "components": {
       "minecraft:type_family": { "family": [ "wolf", "dog", "mob" ] },
-      "minecraft:health":      { "value": 12, "max": 12 },
+      "minecraft:health":      { "value": 20, "max": 20 },
       "minecraft:nameable":    { "always_show": true, "allow_name_tag_renaming": true },
-      "minecraft:attack":      { "damage": 2 },
+      "minecraft:attack":      { "damage": 4 },
       "minecraft:movement.basic":  {},
       "minecraft:jump.static":     {},
       "minecraft:can_climb":       {},
       "minecraft:physics":         {},
       "minecraft:pushable": { "is_pushable": true },
-      "minecraft:collision_box": { "width": 0.4, "height": 0.5 },
+      "minecraft:collision_box": { "width": 0.6, "height": 0.85 },
       "minecraft:behavior.float": { "priority": 0 },
       "minecraft:behavior.look_at_player":    { "priority": 8, "look_distance": 8.0 },
       "minecraft:behavior.random_look_around": { "priority": 9 },
@@ -262,17 +262,17 @@
 
       "goodboy:bark_start": {
         "add": { "component_groups": [ "goodboy:barking_state", "goodboy:bark_phase_1" ] },
-        "queue_command": { "command": [ "playsound mob.chihuahua.bark @a ~ ~ ~ 0.5 1" ] }
+        "queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 0.5 1" ] }
       },
       "goodboy:bark_2": {
         "remove": { "component_groups": [ "goodboy:bark_phase_1" ] },
         "add":    { "component_groups": [ "goodboy:bark_phase_2" ] },
-        "queue_command": { "command": [ "playsound mob.chihuahua.bark @a ~ ~ ~ 0.5 1" ] }
+        "queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 0.5 1" ] }
       },
       "goodboy:bark_3": {
         "remove": { "component_groups": [ "goodboy:bark_phase_2" ] },
         "add":    { "component_groups": [ "goodboy:bark_cooldown" ] },
-        "queue_command": { "command": [ "playsound mob.chihuahua.bark @a ~ ~ ~ 0.5 1" ] }
+        "queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 0.5 1" ] }
       },
       "goodboy:bark_reset": {
         "remove": { "component_groups": [ "goodboy:barking_state", "goodboy:bark_cooldown" ] }
