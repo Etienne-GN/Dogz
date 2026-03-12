@@ -14,6 +14,7 @@
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
+* **Restricted State Transitions (v1.4.23)**: Prevent direct Sit <-> Lay transitions. Standing -> Sit/Lay, Sitting -> Stand, Laying -> Stand.
 * **Immortal/Revival Mechanic**: Logic is not yet reliable (Downed state needs better health-lock).
 
 ### ⚪ To-Do

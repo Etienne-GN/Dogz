@@ -10,9 +10,12 @@ Follow these steps to confirm all features are working correctly.
 
 ## 🧪 2. Commands & States
 - [ ] **Sit**: Stand and Interact. Does the dog sit?
-- [ ] **Stand**: Interact with a sitting dog. Does it stand and follow?
-- [ ] **Lay Down**: Crouch and Interact. Does the dog lay on the ground?
-- [ ] **Cross-Action**: While sitting, Crouch + Interact. Does it transition to laying?
+- [ ] **Stand from Sit**: Interact with a sitting dog. Does it stand and follow?
+- [ ] **Lay Down**: Crouch and Interact while standing. Does the dog lay on the ground?
+- [ ] **Stand from Lay**: Crouch and Interact while laying. Does the dog stand up?
+- [ ] **Restricted Transitions**: 
+    - [ ] While sitting, Crouch + Interact. Does the dog remain sitting (instead of laying)?
+    - [ ] While laying, standard Interact. Does the dog remain laying (instead of sitting)?
 - [ ] **Head Tilt**: While sitting or standing, hold meat. Does the dog tilt its head cute-ly?
 
 ## 🧪 3. Combat & Protection
