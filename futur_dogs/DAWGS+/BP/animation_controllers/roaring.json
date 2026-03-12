@@ -1,0 +1,21 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.roaring": {
+			"initial_state" : "default",
+			"states": {
+				"default": {
+					"transitions": [ 
+						{ "roaring": "query.is_sheared" }
+					]
+				},
+				"roaring": {
+					"transitions": [{"default": "!query.is_sheared"}],
+					"on_entry": [
+						"/playsound mob.wolf.bark @a ~ ~ ~ "
+   					]
+				}
+			}
+		}
+	}
+}

@@ -33,15 +33,71 @@ High-fidelity dogs with advanced AI and survival mechanics.
 10. **Begging Animation**: Head tilt when holding food (Requires safe Molang).
 11. **Smooth Update Protocol**: Transition to version-only updates (locking UUIDs) to allow mod updates without reinstallation.
 
+## 🐕 Dog Behavior Guide
+This guide explains how to interact with your new dogs and details their advanced AI behaviors.
+
+### Breeds
+1. **Golden Retriever**: Loyal, high health (20 HP), balanced speed.
+2. **Chihuahua**: Small, agile, faster movement, lower health (12 HP).
+
+### 🍖 Taming & Healing
+- **Wild State**: Use a **Bone** to tame. Holding any **Meat** will cause wild dogs to follow you (Temptation).
+- **Healing**: Feed meat to your tamed dog to restore health.
+  - **Raw Meat**: +2 HP
+  - **Cooked Meat**: +4 HP (Efficiency bonus!)
+  - **Rotten Flesh**: +2 HP (Safe for dogs).
+
+### 🎮 Commands
+- **Sit/Stand**: Right-click (Interact) while standing to toggle.
+- **Lay Down**: **Crouch (Sneak) + Interact** to make the dog lay on the ground. Crouch + Interact again to stand up.
+- **Leash**: Use a Lead to make the dog follow you very closely (2 block radius).
+
+### 🛡️ Protection & Combat
+- **Bodyguard**: Your dog attacks any mob that hits you or that you attack.
+- **Creeper Safety**: Dogs **ignore Creepers** to prevent explosions.
+- **Creeper Repellent**: Creepers are **terrified** of your dogs and will run away!
+- **Hostile Alert**: If a monster is within 16 blocks, your dog will bark **3 times rapidly** every 5 seconds to warn you.
+
+### 💖 Survival (Immortal Companion)
+- **Downed State**: Dogs **cannot die** from mob damage. When health reaches 1 HP, they enter a "Downed" state.
+- **Symptoms**: They will lay down and **whine/moan** continuously.
+- **Revival**: You MUST feed them meat to heal them and get them back on their feet.
+
+### 🍼 Breeding & Growth
+- **Puppies**: Feed two tamed adults of the same breed any meat to produce a puppy.
+- **Growth**: Puppies grow into adults in 20 minutes. Feeding them meat speeds up the process.
+- **Visuals**: Puppies are 50% (Retriever) or 25% (Chihuahua) the size of adults.
+
+### 🎨 Customization
+- **Nametags**: Use a renamed Nametag to give your dog a permanent name shown above its head.
+- **Tail Indicator**: The height of your dog's tail tells you its health! (High = Healthy, Low = Hurt).
+
 ## 🛠 Build Instructions
 To create the `.mcaddon` file for testing:
-1. Zip the contents of the `BP/` folder and rename it to `dogz_bp.mcpack`.
-2. Zip the contents of the `RP/` folder and rename it to `dogz_rp.mcpack`.
-3. Zip these two `.mcpack` files together and rename it to `dogz.mcaddon`.
-   * *Note: Always use ZIP compression, never tarballs.*
+1. From the project root, run: `./package_addon.sh Dogz`
 
-## 📜 Commit & Versioning Rules
+## 📜 Changelog
+
+### [1.4.28] - Active Development
+#### Fixed
+- Cleaned AI: Removed broken downed/immortal logic to restore stability.
+- Fixed untamed dogs standing still by adding wild stroll behavior.
+
+### [1.4.25]
+#### Added
+- Creeper Repellent: Creepers act normally but flee dogs/barking dogs.
+
+### [1.4.23]
+#### Fixed
+- Restricted State Transitions: Fixed "Sit-Lay-Sit" bug. Dogs must stand up to switch between Sit and Lay states.
+
+### [1.4.10]
+#### Fixed
+- Movement Lock: Movement set to 0.0 while sitting/laying to prevent sliding.
+- Attack Cancellation: Dogs now forget attack targets when commanded to sit.
+
+## ⚖️ Commit & Versioning Rules
 1. **Stable UUIDs:** Once a mod version is stable, **DO NOT** change the `uuid` in `manifest.json`.
 2. **Increment Version:** To update the mod, only increment the `version` array in `manifest.json`. This allows users to import it as an update without deleting the old version.
 3. **Update README:** After every significant change, update the Roadmap in the `README.md` (move items from To-Do to Verified).
-4. **Follow the Log:** Consult `GOODBOY_DEVELOPMENT_LOG.md` before making visual or geometry changes to avoid past glitches.
+4. **Technical Log:** Consult the root `DEVELOPMENT_LOG.md` before making visual or geometry changes to avoid past glitches.

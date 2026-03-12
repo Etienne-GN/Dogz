@@ -1,0 +1,18 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "DAWGS+ RP",
+    "description": "Visuals for DAWGS+",
+    "uuid": "0b6e3c18-03ef-4542-9805-72ec3589db92",
+    "version": [1, 7, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "description": "DAWGS+ Visuals",
+      "type": "resources",
+      "uuid": "61be89a7-8a52-4677-b7c5-5af132796bac",
+      "version": [1, 7, 0]
+    }
+  ]
+}

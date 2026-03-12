@@ -1,0 +1,22 @@
+#### CUSTOM ENTITIES ####
+
+    entity.dogs:dalmatian.name=Dalmatian
+    entity.dogs:danes.name=Danes
+    entity.dogs:german_shepherd.name=German Shepherd
+    entity.dogs:poodle.name=Poodle
+    entity.dogs:retriever.name=Retriever
+    entity.dogs:terrier.name=Terrier
+
+## spawn eggs
+    item.spawn_egg.entity.dogs:dalmatian.name=Spawn Dalmatian
+    item.spawn_egg.entity.dogs:danes.name=Spawn Danes
+    item.spawn_egg.entity.dogs:german_shepherd.name=Spawn German Shepherd
+    item.spawn_egg.entity.dogs:poodle.name=Spawn Poodle
+    item.spawn_egg.entity.dogs:retriever.name=Spawn Retriever
+    item.spawn_egg.entity.dogs:terrier.name=Spawn Terrier
+
+## Action Hints
+
+#### PACKAGING ####
+
+pack.name=Dogs AddOn

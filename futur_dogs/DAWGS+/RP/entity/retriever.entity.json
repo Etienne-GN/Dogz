@@ -1,0 +1,45 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "dogs:retriever",
+			"spawn_egg": {
+				"base_color": "#e0bc84",
+				"overlay_color": "#ad8b57"
+			},
+			"render_controllers": ["controller.render.dog"],
+			"geometry": {
+				"default": "geometry.dog_retriever"
+			},
+			"textures": {
+				"default": "textures/entity/dog_retriever",
+				"tamed": "textures/entity/dog_retriever_tamed"
+			},
+			"animations": {
+				"walk": "animation.dog.walk",
+				"run": "animation.dog.run",
+				"roar": "animation.dog.roar",
+				"sit": "animation.dog.sit",
+				"fullhealth": "animation.dog.fullhealth",
+				"twothirdhealth": "animation.dog.twothirdhealth",
+				"onethirdhealth": "animation.dog.onethirdhealth",
+				"look_at_target": "animation.common.look_at_target"
+			},
+			"scripts": {
+				"animate":[
+					"look_at_target",
+					{"fullhealth": "query.health >= (0.66 * query.max_health)"},
+					{"twothirdhealth": "query.health >= (0.33 * query.max_health)"},
+					{"onethirdhealth": "query.health < (0.33 * query.max_health)"},
+					{"walk": "query.modified_move_speed"},
+					{"run": "query.modified_move_speed && query.has_target && !query.is_sitting"},
+					{"roar": "query.is_sheared"},
+					{"sit": "query.is_sitting"}
+				]
+			},
+			"materials": {
+				"default": "entity_alphatest"
+			}
+		}
+	}
+}

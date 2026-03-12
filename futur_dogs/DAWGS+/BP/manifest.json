@@ -1,0 +1,24 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "DAWGS+ BP",
+    "description": "Premium Dogs Collection",
+    "uuid": "64330db5-8015-4912-8dad-3c8eeb5016a8",
+    "version": [1, 7, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "description": "DAWGS+ Data",
+      "type": "data",
+      "uuid": "b748054a-5581-4696-a72a-b151822c5bea",
+      "version": [1, 7, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "0b6e3c18-03ef-4542-9805-72ec3589db92",
+      "version": [1, 7, 0]
+    }
+  ]
+}
