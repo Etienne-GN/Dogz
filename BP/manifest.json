@@ -4,7 +4,7 @@
     "name": "Dogz BP",
     "description": "Custom dogs for Minecraft",
     "uuid": "4b597f2b-a25c-4850-b86d-c3927a4eeb7e",
-    "version": [2, 0, 0],
+    "version": [2, 0, 2],
     "min_engine_version": [1, 21, 0]
   },
   "modules": [
@@ -17,7 +17,7 @@
   "dependencies": [
     {
       "uuid": "4658db83-8b6a-44a6-aad3-1c653918d2e5",
-      "version": [2, 0, 0]
+      "version": [2, 0, 2]
     }
   ]
 }

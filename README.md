@@ -18,6 +18,7 @@ High-fidelity dogs with advanced AI and survival mechanics.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
+* **Fixed Creeper Homing Missile (v2.0.2)**: Restored vanilla swelling/fuse/targeting behavior. Creepers now stop to swell and have normal damage sensing.
 * **Cleaned AI (v1.4.28)**: Removed broken downed/immortal logic to restore stability. Fixed untamed dogs standing still by adding wild stroll behavior.
 
 ### ⚪ To-Do
@@ -77,6 +78,12 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.0.2] - 2026-03-12
+#### Fixed
+- Complete restoration of vanilla Creeper behavior: Swelling, fuse slowing, and correct targeting.
+- Fixed malformed damage sensor (Creepers can now be killed normally).
+- Maintained "Creeper Repellent" (fleeing dogs).
 
 ### [2.0.0] - Rebranding
 #### Changed
