@@ -16,7 +16,7 @@
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
-* (None)
+* **Cleaned AI (v1.4.28)**: Removed broken downed/immortal logic to restore stability. Fixed untamed dogs standing still by adding wild stroll behavior.
 
 ### ⚪ To-Do
 1. **Immortal/Revival Mechanic**: Re-implement downed state (at 1HP) with invulnerability and slow health regen.
