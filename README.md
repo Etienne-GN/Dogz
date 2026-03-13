@@ -18,8 +18,8 @@ High-fidelity dogs with advanced AI and survival mechanics.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
+* **Fixed Dog Revival (v2.2.1)**: Fixed bug where downed dogs couldn't be revived. Corrected the interaction event and added missing language strings.
 * **Immortal Dogs (v2.2.0)**: Implemented 100 HP "Safety Buffer". Dogs now enter a downed/injured state instead of dying from most damage sources.
-* **Revival Mechanic (v2.2.0)**: Use any meat on a downed dog to revive them to full health.
 * **Cleaned AI (v1.4.28)**: Removed broken downed/immortal logic to restore stability. Fixed untamed dogs standing still by adding wild stroll behavior.
 
 ### ⚪ To-Do
@@ -78,6 +78,11 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.2.1] - 2026-03-12
+#### Fixed
+- Fixed Revival Interaction: Corrected the event sequence to ensure meat interactions successfully reset health and stand the dog back up.
+- Added missing translation: `action.interact.revive` ("Revive Companion").
 
 ### [2.2.0] - 2026-03-12
 #### Added

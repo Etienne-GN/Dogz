@@ -4,3 +4,4 @@ item.spawn_egg.entity.dogz:retriever.name=Spawn Retriever
 item.spawn_egg.entity.dogz:chihuahua.name=Spawn Chihuahua
 action.interact.laydown=Lay Down
 action.interact.stand=Stand
+action.interact.revive=Revive Companion

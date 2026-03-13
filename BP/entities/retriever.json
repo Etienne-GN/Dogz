@@ -121,6 +121,9 @@
 					"looping": true,
 					"time_down_event": { "event": "dogz:play_whine", "target": "self" }
 				}
+			},
+			"dogz:revive_healing": {
+				"minecraft:healable": { "items": [ { "item": "beef", "heal_amount": 100 }, { "item": "cooked_beef", "heal_amount": 100 }, { "item": "chicken", "heal_amount": 100 }, { "item": "cooked_chicken", "heal_amount": 100 }, { "item": "porkchop", "heal_amount": 100 }, { "item": "cooked_porkchop", "heal_amount": 100 }, { "item": "rotten_flesh", "heal_amount": 100 } ] }
 			}
 		},
 		"components": {
@@ -179,9 +182,13 @@
 			},
 			"dogz:on_revived": {
 				"remove": { "component_groups": [ "dogz:downed" ] },
-				"add": { "component_groups": [ "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] },
+				"add": { "component_groups": [ "dogz:revive_healing" ] },
 				"queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 1 1" ] },
-				"set_health": { "value": 100 }
+				"trigger": "dogz:finish_revive"
+			},
+			"dogz:finish_revive": {
+				"remove": { "component_groups": [ "dogz:revive_healing" ] },
+				"add": { "component_groups": [ "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] }
 			},
 			"dogz:play_whine": {
 				"queue_command": { "command": [ "playsound mob.wolf.whine @a ~ ~ ~ 0.5 1" ] }
