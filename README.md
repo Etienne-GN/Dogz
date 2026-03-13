@@ -18,9 +18,10 @@ High-fidelity dogs with advanced AI and survival mechanics.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
-* **Bulletproof Immortal Dogs (v2.2.2)**: Implemented `deals_damage: false` safety net. Dogs now cancel the killing blow and enter downed state instead. Fixed bug where dogs spawned in downed state.
-* **Fixed Dog Revival (v2.2.1)**: Fixed bug where downed dogs couldn't be revived. Corrected the interaction event and added missing language strings.
-* **Immortal Dogs (v2.2.0)**: Implemented 100 HP "Safety Buffer". Dogs now enter a downed/injured state instead of dying from most damage sources.
+* **Fixed Immortal Threshold (v2.2.3)**: Lowered downed threshold to 10 HP to prevent "one-hit downs" at spawn.
+* **Bulletproof Safety Net (v2.2.3)**: Integrated `deals_damage: false` into the threshold sensor to cancel fatal blows.
+* **Health Initialization (v2.2.3)**: Explicitly heal to 100 HP on spawn and revival.
+* **Fixed Dog Revival (v2.2.1)**: Corrected interaction labels and events.
 * **Cleaned AI (v1.4.28)**: Removed broken downed/immortal logic to restore stability. Fixed untamed dogs standing still by adding wild stroll behavior.
 
 ### ⚪ To-Do
@@ -79,6 +80,12 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.2.3] - 2026-03-12
+#### Fixed
+- Fixed spawn health: Dogs no longer down in one hit when spawned, by lowering the threshold to 10 HP (Standard wolves have 20 HP).
+- True Immortality: Threshold damage is now cancelled (`deals_damage: false`), ensuring the dog survives even massive hits by transitioning to Downed state.
+- Explicit Healing: Added health reset to 100 on both spawn and revival events.
 
 ### [2.2.2] - 2026-03-12
 #### Fixed

@@ -122,8 +122,8 @@
 					"time_down_event": { "event": "dogz:play_whine", "target": "self" }
 				}
 			},
-			"dogz:revive_healing": {
-				"minecraft:healable": { "items": [ { "item": "beef", "heal_amount": 100 }, { "item": "cooked_beef", "heal_amount": 100 }, { "item": "chicken", "heal_amount": 100 }, { "item": "cooked_chicken", "heal_amount": 100 }, { "item": "porkchop", "heal_amount": 100 }, { "item": "cooked_porkchop", "heal_amount": 100 }, { "item": "rotten_flesh", "heal_amount": 100 } ] }
+			"dogz:spawn_healing": {
+				"minecraft:healable": { "items": [ { "item": "bone", "heal_amount": 100 } ] }
 			}
 		},
 		"components": {
@@ -141,7 +141,7 @@
 				"triggers": [
 					{
 						"on_damage": {
-							"filters": { "test": "health", "operator": "<=", "value": 80 },
+							"filters": { "test": "health", "operator": "<=", "value": 10 },
 							"event": "dogz:on_downed",
 							"target": "self",
 							"deals_damage": false
@@ -152,7 +152,13 @@
 			}
 		},
 		"events": {
-			"minecraft:entity_spawned": { "add": { "component_groups": [ "dogz:wild", "dogz:movement_active" ] } },
+			"minecraft:entity_spawned": { 
+				"add": { "component_groups": [ "dogz:wild", "dogz:movement_active" ] },
+				"trigger": "dogz:heal_to_max"
+			},
+			"dogz:heal_to_max": {
+				"set_health": { "value": 100 }
+			},
 			"minecraft:on_tame": { "remove": { "component_groups": [ "dogz:wild" ] }, "add": { "component_groups": [ "dogz:tamed_base", "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] } },
 			"dogz:on_sit": { "remove": { "component_groups": [ "dogz:follow_ai", "dogz:laying", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact", "dogz:laying_interact" ] }, "add": { "component_groups": [ "dogz:sitting", "dogz:sitting_interact" ] } },
 			"dogz:on_stand": { "remove": { "component_groups": [ "dogz:sitting", "dogz:laying", "dogz:sitting_interact", "dogz:laying_interact", "dogz:downed" ] }, "add": { "component_groups": [ "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] } },
@@ -183,13 +189,9 @@
 			},
 			"dogz:on_revived": {
 				"remove": { "component_groups": [ "dogz:downed" ] },
-				"add": { "component_groups": [ "dogz:revive_healing" ] },
+				"add": { "component_groups": [ "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] },
 				"queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 1 1" ] },
-				"trigger": "dogz:finish_revive"
-			},
-			"dogz:finish_revive": {
-				"remove": { "component_groups": [ "dogz:revive_healing" ] },
-				"add": { "component_groups": [ "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] }
+				"set_health": { "value": 100 }
 			},
 			"dogz:play_whine": {
 				"queue_command": { "command": [ "playsound mob.wolf.whine @a ~ ~ ~ 0.5 1" ] }
