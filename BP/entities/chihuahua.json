@@ -114,28 +114,39 @@
 				"minecraft:behavior.stay_while_sitting": { "priority": 1 },
 				"minecraft:movement": { "value": 0.0 },
 				"minecraft:damage_sensor": { "triggers": [ { "deals_damage": false } ] },
-				"minecraft:healable": {
-					"force_use": true,
-					"items": [
-						{ "item": "beef", "heal_amount": 100 },
-						{ "item": "cooked_beef", "heal_amount": 100 },
-						{ "item": "chicken", "heal_amount": 100 },
-						{ "item": "cooked_chicken", "heal_amount": 100 },
-						{ "item": "porkchop", "heal_amount": 100 },
-						{ "item": "cooked_porkchop", "heal_amount": 100 },
-						{ "item": "rotten_flesh", "heal_amount": 100 }
-					],
-					"on_heal": { "event": "dogz:on_revived", "target": "self" }
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{ "test": "is_owner", "subject": "other", "value": true },
+										{
+											"any_of": [
+												{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "beef" },
+												{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "cooked_beef" },
+												{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "chicken" },
+												{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "cooked_chicken" },
+												{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "porkchop" },
+												{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "cooked_porkchop" },
+												{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "rotten_flesh" }
+											]
+										}
+									]
+								},
+								"event": "dogz:on_revived",
+								"target": "self"
+							},
+							"use_item": true,
+							"play_sounds": "eat",
+							"interact_text": "action.interact.revive"
+						}
+					]
 				},
 				"minecraft:timer": {
 					"time": [ 3.0, 6.0 ],
 					"looping": true,
 					"time_down_event": { "event": "dogz:play_whine", "target": "self" }
-				},
-				"minecraft:interact": {
-					"interactions": [
-						{ "interact_text": "action.interact.revive" }
-					]
 				}
 			}
 		},

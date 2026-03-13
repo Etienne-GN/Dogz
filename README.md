@@ -18,6 +18,7 @@ High-fidelity dogs with advanced AI and survival mechanics.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
+* **Fixed Dog Revival Logic (v2.2.5)**: Replaced unreliable `minecraft:healable` with a robust `minecraft:interact` system. Revival now consistently triggers when using meat.
 * **State-Cycling Immortality (v2.2.4)**: Implemented component group cycling to "re-arm" the damage sensor upon revival.
 * **Fatal Damage Intercept (v2.2.4)**: Switched to `has_damage: fatal` sensor for 100% reliable death prevention.
 * **Reliable Revival (v2.2.4)**: Set HP to 1 in Downed state to ensure `on_heal` always triggers.
@@ -80,6 +81,11 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.2.5] - 2026-03-12
+#### Fixed
+- **Robust Revival**: Replaced `minecraft:healable` revival with a `minecraft:interact` handler that checks for meat items. This ensures the revival button actually functions and consumes the item to stand the dog back up.
+- **Manifest Sync**: Verified and synced all manifest header, module, and dependency versions to 2.2.5.
 
 ### [2.2.4] - 2026-03-12
 #### Fixed
