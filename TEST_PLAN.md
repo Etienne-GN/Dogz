@@ -25,9 +25,11 @@ Follow these steps to confirm all features are working correctly.
 - [ ] **Creeper Safety**: Attack a Creeper. Does the dog ignore your command to attack it? (Expected: Dog should NOT attack creepers).
 - [ ] **Vanilla Creeper Behavior (v2.0.5)**: With NO dog around, does the Creeper track you, swell, and explode exactly like vanilla?
 
-## 🧪 4. Immortality
-- [ ] **Downed State**: Let a monster hit the dog until it whines and lays down. Does it stop attacking? Is it moaning?
-- [ ] **Revival**: Feed the moaning dog some meat. Does it stand back up?
+## 🧪 4. Immortality (v2.2.0)
+- [ ] **Standard Downed**: Hit a dog until it whines and lays down (80 HP for Retriever, 88 for Chihuahua). Does it stop attacking? Is it moaning?
+- [ ] **Revival**: Feed the moaning dog some meat. Does it stand back up at full health?
+- [ ] **Invulnerability**: While the dog is downed, try to hit it. Does it take any damage? (Expected: NO damage).
+- [ ] **Creeper Survival**: Let a Creeper explode next to a healthy dog. Does the dog survive and enter the downed state?
 
 ## 🧪 5. Breeding
 - [ ] **Puppies**: Feed meat to two tamed dogs. Do they produce a tiny puppy?

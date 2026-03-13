@@ -18,11 +18,12 @@ High-fidelity dogs with advanced AI and survival mechanics.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
+* **Immortal Dogs (v2.2.0)**: Implemented 100 HP "Safety Buffer". Dogs now enter a downed/injured state instead of dying from most damage sources.
+* **Revival Mechanic (v2.2.0)**: Use any meat on a downed dog to revive them to full health.
 * **Cleaned AI (v1.4.28)**: Removed broken downed/immortal logic to restore stability. Fixed untamed dogs standing still by adding wild stroll behavior.
 
 ### ⚪ To-Do
-1. **Immortal/Revival Mechanic**: Re-implement downed state (at 1HP) with invulnerability and slow health regen.
-2. **Untamed Fall Damage**: Fix bug where wild dogs take no fall damage.
+1. **Untamed Fall Damage**: Fix bug where wild dogs take no fall damage.
 3. **Proper Death Messages**: Fix "Unknown died" messages by ensuring default naming logic.
 4. **Defense Mode when Attached**: Dogs guard a small radius when tied to a fence.
 5. **Dyeable Collars**: Visible physical collar bones with support for 16 colors.
@@ -77,6 +78,14 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.2.0] - 2026-03-12
+#### Added
+- **Immortal Companion Logic**: Dogs now have 100 Max HP with a "Safety Buffer".
+- **Downed State**: When health drops below a threshold (80 for Retriever, 88 for Chihuahua), the dog collapses, whines, and becomes invulnerable.
+- **Revival interaction**: Feed any meat to a downed dog to restore them to full health and active status.
+#### Fixed
+- Prevented dogs from dying to Creepers or high-damage attacks using the health buffer system.
 
 ### [2.1.0] - 2026-03-12
 #### Added
