@@ -18,6 +18,7 @@ High-fidelity dogs with advanced AI and survival mechanics.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
+* **Fixed Creeper Explosion Logic (v2.0.4)**: Added missing `minecraft:explode` component. Creepers now correctly detonate after swelling.
 * **Fixed Creeper AI & Targeting (v2.0.3)**: Restored `minecraft:behavior.melee_attack` for proper player tracking. Creepers now actively follow the player and swell/slow down as in vanilla.
 * **Cleaned AI (v1.4.28)**: Removed broken downed/immortal logic to restore stability. Fixed untamed dogs standing still by adding wild stroll behavior.
 
@@ -78,6 +79,11 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.0.4] - 2026-03-12
+#### Fixed
+- Fixed Creeper explosion: Added missing `minecraft:explode` component to base entity.
+- Verified: Creepers now follow, swell, and explode correctly.
 
 ### [2.0.3] - 2026-03-12
 #### Fixed

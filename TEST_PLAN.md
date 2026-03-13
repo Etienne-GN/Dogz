@@ -23,9 +23,9 @@ Follow these steps to confirm all features are working correctly.
 - [ ] **Alert**: Spawn a Zombie 10 blocks away. Does the dog bark 3 times?
 - [ ] **Creeper Fear**: Spawn a Creeper near the dog. Does the Creeper run away?
 - [ ] **Creeper Safety**: Attack a Creeper. Does the dog ignore your command to attack it? (Expected: Dog should NOT attack creepers).
-- [ ] **Creeper Swelling (v2.0.3)**: Spawn a Creeper with NO dog around. Does it slow down and swell for 1.5s before exploding?
-- [ ] **Creeper Killable (v2.0.3)**: Can you kill a Creeper with a normal sword?
-- [ ] **Creeper Targeting (v2.0.3)**: Does the Creeper actively track the player and move towards them (until it starts swelling)?
+- [ ] **Creeper Swelling (v2.0.4)**: Spawn a Creeper with NO dog around. Does it slow down and swell for 1.5s before exploding?
+- [ ] **Creeper Explosion (v2.0.4)**: Does the Creeper actually explode (cause damage/break blocks) after the swelling?
+- [ ] **Creeper Targeting (v2.0.4)**: Does the Creeper actively track the player and move towards them?
 
 ## 🧪 4. Immortality
 - [ ] **Downed State**: Let a monster hit the dog until it whines and lays down. Does it stop attacking? Is it moaning?

@@ -16,6 +16,13 @@
           "fuse_length": 1.5,
           "power": 6,
           "causes_fire": false
+        },
+        "minecraft:explode": {
+          "fuse_length": 1.5,
+          "fuse_lit": false,
+          "power": 6,
+          "causes_fire": false,
+          "destroy_affected_by_griefing": true
         }
       },
       "minecraft:forced_exploding": {
@@ -24,6 +31,13 @@
           "fuse_length": 1.5,
           "power": 3,
           "causes_fire": false
+        },
+        "minecraft:explode": {
+          "fuse_length": 1.5,
+          "fuse_lit": true,
+          "power": 3,
+          "causes_fire": false,
+          "destroy_affected_by_griefing": true
         }
       }
     },
@@ -117,6 +131,13 @@
             "sprint_speed_multiplier": 1.2
           }
         ]
+      },
+      "minecraft:explode": {
+        "fuse_length": 1.5,
+        "fuse_lit": false,
+        "power": 3,
+        "causes_fire": false,
+        "destroy_affected_by_griefing": true
       },
       "minecraft:swellable": {
         "max_dist": 6.0,
