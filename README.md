@@ -18,6 +18,7 @@ High-fidelity dogs with advanced AI and survival mechanics.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
+* **Persistent Dog Fear (v2.0.6)**: Fixed bug where creepers stopped fleeing when dogs barked. Added `"cat"` and `"ocelot"` families to all active dog states.
 * **Vanilla Creeper Restoration (v2.0.5)**: Deleted custom creeper override to restore 100% vanilla behavior (targeting/swelling/exploding).
 * **Dog "Cat-Logic" Fear (v2.0.5)**: Added `"cat"` and `"ocelot"` families to dogs so vanilla creepers naturally flee from them.
 * **Cleaned AI (v1.4.28)**: Removed broken downed/immortal logic to restore stability. Fixed untamed dogs standing still by adding wild stroll behavior.
@@ -79,6 +80,10 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.0.6] - 2026-03-12
+#### Fixed
+- Fixed persistent creeper fear: Added `"cat"` and `"ocelot"` families to the `dogz:barking_state` component group so the tags are not lost when the dog alerts.
 
 ### [2.0.5] - 2026-03-12
 #### Fixed

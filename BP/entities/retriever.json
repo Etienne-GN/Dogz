@@ -78,7 +78,7 @@
 			},
 			"dogz:barking_state": { 
 				"minecraft:is_stunned": {},
-				"minecraft:type_family": { "family": [ "wolf", "dog", "mob", "barking" ] }
+				"minecraft:type_family": { "family": [ "wolf", "dog", "mob", "barking", "cat", "ocelot" ] }
 			},
 			"dogz:bark_phase_1": { "minecraft:timer": { "time": 0.25, "time_down_event": { "event": "dogz:bark_2", "target": "self" } } },
 			"dogz:bark_phase_2": { "minecraft:timer": { "time": 0.25, "time_down_event": { "event": "dogz:bark_3", "target": "self" } } },
