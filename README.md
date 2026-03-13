@@ -4,7 +4,7 @@ High-fidelity dogs with advanced AI and survival mechanics.
 ## 🗺 Roadmap
 
 ### 🟢 Verified
-* **Creeper Repellent (v1.4.25)**: Creepers act normally but flee dogs/barking dogs (Priority 1).
+* **Creeper Repellent (v2.1.0)**: Creepers now naturally flee dogs (identified as cats/ocelots) while maintaining perfect vanilla targeting/swelling/exploding behavior.
 * **Restricted State Transitions (v1.4.23)**: Fixed "Sit-Lay-Sit" bug. Dogs must stand up to switch between Sit and Lay states.
 * **Movement Lock (v1.4.10)**: Movement set to 0.0 while sitting/laying to prevent sliding.
 * **Attack Cancellation (v1.4.10)**: Dogs now forget attack targets when commanded to sit.
@@ -18,9 +18,6 @@ High-fidelity dogs with advanced AI and survival mechanics.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
-* **Persistent Dog Fear (v2.0.6)**: Fixed bug where creepers stopped fleeing when dogs barked. Added `"cat"` and `"ocelot"` families to all active dog states.
-* **Vanilla Creeper Restoration (v2.0.5)**: Deleted custom creeper override to restore 100% vanilla behavior (targeting/swelling/exploding).
-* **Dog "Cat-Logic" Fear (v2.0.5)**: Added `"cat"` and `"ocelot"` families to dogs so vanilla creepers naturally flee from them.
 * **Cleaned AI (v1.4.28)**: Removed broken downed/immortal logic to restore stability. Fixed untamed dogs standing still by adding wild stroll behavior.
 
 ### ⚪ To-Do
@@ -80,6 +77,13 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.1.0] - 2026-03-12
+#### Added
+- Full Creeper avoidance: Dogs now correctly identify as `"cat"` and `"ocelot"` across all states (Idle and Barking), triggering vanilla Creeper fear logic.
+#### Fixed
+- Restored 100% vanilla Creeper behavior by removing custom overrides.
+- Verified stable targeting, swelling, and explosion mechanics for Creepers.
 
 ### [2.0.6] - 2026-03-12
 #### Fixed
