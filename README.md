@@ -18,6 +18,7 @@ High-fidelity dogs with advanced AI and survival mechanics.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
+* **Bulletproof Immortal Dogs (v2.2.2)**: Implemented `deals_damage: false` safety net. Dogs now cancel the killing blow and enter downed state instead. Fixed bug where dogs spawned in downed state.
 * **Fixed Dog Revival (v2.2.1)**: Fixed bug where downed dogs couldn't be revived. Corrected the interaction event and added missing language strings.
 * **Immortal Dogs (v2.2.0)**: Implemented 100 HP "Safety Buffer". Dogs now enter a downed/injured state instead of dying from most damage sources.
 * **Cleaned AI (v1.4.28)**: Removed broken downed/immortal logic to restore stability. Fixed untamed dogs standing still by adding wild stroll behavior.
@@ -78,6 +79,11 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.2.2] - 2026-03-12
+#### Fixed
+- **True Immortality**: Added `deals_damage: false` to the health threshold sensor. This prevents dogs from dying even if hit by massive damage (Creepers/TNT), as the fatal blow is now cancelled and replaced by the Downed state.
+- **Fixed Spawn State**: Corrected starting health initialization to ensure dogs spawn at 100 HP (Healthy) instead of starting downed.
 
 ### [2.2.1] - 2026-03-12
 #### Fixed
