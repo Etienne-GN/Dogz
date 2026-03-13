@@ -85,7 +85,7 @@
 			"dogz:bark_cooldown": { "minecraft:timer": { "time": 3.0, "time_down_event": { "event": "dogz:bark_reset", "target": "self" } } }
 		},
 		"components": {
-			"minecraft:type_family": { "family": [ "wolf", "dog", "mob" ] },
+			"minecraft:type_family": { "family": [ "wolf", "dog", "mob", "cat", "ocelot" ] },
 			"minecraft:health": { "value": 20, "max": 20 },
 			"minecraft:nameable": { "always_show": true, "allow_name_tag_renaming": true },
 			"minecraft:attack": { "damage": 4 },
