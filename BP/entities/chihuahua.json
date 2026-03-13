@@ -11,6 +11,27 @@
 				"minecraft:behavior.tempt": { "priority": 4, "speed_multiplier": 1.2, "items": [ "bone", "beef", "cooked_beef", "chicken", "cooked_chicken", "porkchop", "cooked_porkchop", "muttonRaw", "muttonCooked", "rabbit", "cooked_rabbit", "rotten_flesh" ] },
 				"minecraft:behavior.random_stroll": { "priority": 7, "speed_multiplier": 0.8 }
 			},
+			"dogz:alive": {
+				"minecraft:health": { "value": 100, "max": 100 },
+				"minecraft:damage_sensor": {
+					"triggers": [
+						{
+							"on_damage": {
+								"filters": { "test": "is_family", "subject": "self", "value": "dog" },
+								"max_damage": 15
+							}
+						},
+						{
+							"on_damage": {
+								"filters": { "test": "has_damage", "value": "fatal" },
+								"event": "dogz:on_downed",
+								"target": "self"
+							},
+							"deals_damage": false
+						}
+					]
+				}
+			},
 			"dogz:tamed_base": {
 				"minecraft:is_tame": {},
 				"minecraft:leashable": { "soft_distance": 2.0, "hard_distance": 4.0, "max_distance": 10.0 },
@@ -88,44 +109,38 @@
 			"dogz:downed": {
 				"minecraft:is_shaking": {},
 				"minecraft:is_sheared": {},
+				"minecraft:health": { "value": 1, "max": 100 },
 				"minecraft:behavior.sit": { "priority": 1 },
 				"minecraft:behavior.stay_while_sitting": { "priority": 1 },
 				"minecraft:movement": { "value": 0.0 },
 				"minecraft:damage_sensor": { "triggers": [ { "deals_damage": false } ] },
-				"minecraft:interact": {
-					"interactions": [
-						{
-							"on_interact": {
-								"filters": {
-									"any_of": [
-										{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "beef" },
-										{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "cooked_beef" },
-										{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "chicken" },
-										{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "cooked_chicken" },
-										{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "porkchop" },
-										{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "cooked_porkchop" },
-										{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "rotten_flesh" }
-									]
-								},
-								"event": "dogz:on_revived",
-								"target": "self"
-							},
-							"use_item": true,
-							"play_sounds": "eat",
-							"interact_text": "action.interact.revive"
-						}
-					]
+				"minecraft:healable": {
+					"force_use": true,
+					"items": [
+						{ "item": "beef", "heal_amount": 100 },
+						{ "item": "cooked_beef", "heal_amount": 100 },
+						{ "item": "chicken", "heal_amount": 100 },
+						{ "item": "cooked_chicken", "heal_amount": 100 },
+						{ "item": "porkchop", "heal_amount": 100 },
+						{ "item": "cooked_porkchop", "heal_amount": 100 },
+						{ "item": "rotten_flesh", "heal_amount": 100 }
+					],
+					"on_heal": { "event": "dogz:on_revived", "target": "self" }
 				},
 				"minecraft:timer": {
 					"time": [ 3.0, 6.0 ],
 					"looping": true,
 					"time_down_event": { "event": "dogz:play_whine", "target": "self" }
+				},
+				"minecraft:interact": {
+					"interactions": [
+						{ "interact_text": "action.interact.revive" }
+					]
 				}
 			}
 		},
 		"components": {
 			"minecraft:type_family": { "family": [ "wolf", "dog", "mob", "cat", "ocelot" ] },
-			"minecraft:health": { "value": 100, "max": 100 },
 			"minecraft:nameable": { "always_show": true, "allow_name_tag_renaming": true },
 			"minecraft:attack": { "damage": 2 },
 			"minecraft:movement.basic": {}, "minecraft:jump.static": {}, "minecraft:can_climb": {}, "minecraft:physics": {},
@@ -136,29 +151,15 @@
 			"minecraft:behavior.random_look_around": { "priority": 9 },
 			"minecraft:damage_sensor": {
 				"triggers": [
-					{
-						"on_damage": {
-							"filters": { "test": "health", "operator": "<=", "value": 10 },
-							"event": "dogz:on_downed",
-							"target": "self",
-							"deals_damage": false
-						}
-					},
 					{ "on_damage": { "filters": { "all_of": [ { "test": "is_tame" }, { "test": "has_component", "subject": "self", "operator": "==", "value": "minecraft:is_baby" } ] }, "deals_damage": false } }
 				]
 			}
 		},
 		"events": {
-			"minecraft:entity_spawned": { 
-				"add": { "component_groups": [ "dogz:wild", "dogz:movement_active" ] },
-				"trigger": "dogz:heal_to_max"
-			},
-			"dogz:heal_to_max": {
-				"set_health": { "value": 100 }
-			},
+			"minecraft:entity_spawned": { "add": { "component_groups": [ "dogz:wild", "dogz:alive", "dogz:movement_active" ] } },
 			"minecraft:on_tame": { "remove": { "component_groups": [ "dogz:wild" ] }, "add": { "component_groups": [ "dogz:tamed_base", "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] } },
 			"dogz:on_sit": { "remove": { "component_groups": [ "dogz:follow_ai", "dogz:laying", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact", "dogz:laying_interact" ] }, "add": { "component_groups": [ "dogz:sitting", "dogz:sitting_interact" ] } },
-			"dogz:on_stand": { "remove": { "component_groups": [ "dogz:sitting", "dogz:laying", "dogz:sitting_interact", "dogz:laying_interact", "dogz:downed" ] }, "add": { "component_groups": [ "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] } },
+			"dogz:on_stand": { "remove": { "component_groups": [ "dogz:sitting", "dogz:laying", "dogz:sitting_interact", "dogz:laying_interact" ] }, "add": { "component_groups": [ "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] } },
 			"dogz:lay_down": { "remove": { "component_groups": [ "dogz:follow_ai", "dogz:sitting", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact", "dogz:sitting_interact" ] }, "add": { "component_groups": [ "dogz:laying", "dogz:laying_interact" ] } },
 			"dogz:stand_up": { "remove": { "component_groups": [ "dogz:laying", "dogz:sitting", "dogz:laying_interact", "dogz:sitting_interact" ] }, "add": { "component_groups": [ "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] } },
 			"minecraft:on_heal": { "remove": { "component_groups": [ "dogz:sitting", "dogz:laying", "dogz:sitting_interact", "dogz:laying_interact" ] }, "add": { "component_groups": [ "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] } },
@@ -180,15 +181,14 @@
 				"remove": { "component_groups": [ "dogz:barking_state", "dogz:bark_cooldown" ] } 
 			},
 			"dogz:on_downed": {
-				"remove": { "component_groups": [ "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact", "dogz:sitting_interact", "dogz:laying_interact", "dogz:sitting", "dogz:laying", "dogz:barking_state", "dogz:bark_phase_1", "dogz:bark_phase_2", "dogz:bark_cooldown" ] },
+				"remove": { "component_groups": [ "dogz:alive", "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact", "dogz:sitting_interact", "dogz:laying_interact", "dogz:sitting", "dogz:laying", "dogz:barking_state", "dogz:bark_phase_1", "dogz:bark_phase_2", "dogz:bark_cooldown" ] },
 				"add": { "component_groups": [ "dogz:downed" ] },
 				"queue_command": { "command": [ "playsound mob.wolf.whine @a ~ ~ ~ 1 1" ] }
 			},
 			"dogz:on_revived": {
 				"remove": { "component_groups": [ "dogz:downed" ] },
-				"add": { "component_groups": [ "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] },
-				"queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 1 1" ] },
-				"set_health": { "value": 100 }
+				"add": { "component_groups": [ "dogz:alive", "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] },
+				"queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 1 1" ] }
 			},
 			"dogz:play_whine": {
 				"queue_command": { "command": [ "playsound mob.wolf.whine @a ~ ~ ~ 0.5 1" ] }

@@ -18,10 +18,10 @@ High-fidelity dogs with advanced AI and survival mechanics.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
+* **State-Cycling Immortality (v2.2.4)**: Implemented component group cycling to "re-arm" the damage sensor upon revival.
+* **Fatal Damage Intercept (v2.2.4)**: Switched to `has_damage: fatal` sensor for 100% reliable death prevention.
+* **Reliable Revival (v2.2.4)**: Set HP to 1 in Downed state to ensure `on_heal` always triggers.
 * **Fixed Immortal Threshold (v2.2.3)**: Lowered downed threshold to 10 HP to prevent "one-hit downs" at spawn.
-* **Bulletproof Safety Net (v2.2.3)**: Integrated `deals_damage: false` into the threshold sensor to cancel fatal blows.
-* **Health Initialization (v2.2.3)**: Explicitly heal to 100 HP on spawn and revival.
-* **Fixed Dog Revival (v2.2.1)**: Corrected interaction labels and events.
 * **Cleaned AI (v1.4.28)**: Removed broken downed/immortal logic to restore stability. Fixed untamed dogs standing still by adding wild stroll behavior.
 
 ### ⚪ To-Do
@@ -80,6 +80,12 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.2.4] - 2026-03-12
+#### Fixed
+- **Persistent Immortality**: Health and Damage sensors now reside in a `dogz:alive` group that is removed and re-added upon revival. This "re-arms" the sensors, fixing the bug where dogs would die after being revived once.
+- **Bulletproof Death Prevention**: Now uses `has_damage: fatal` filter to intercept killing blows directly.
+- **Improved Revival**: Dogs now drop to 1 HP while Downed, ensuring that feeding them meat always triggers the `on_heal` event to stand them back up.
 
 ### [2.2.3] - 2026-03-12
 #### Fixed

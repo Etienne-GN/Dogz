@@ -25,12 +25,13 @@ Follow these steps to confirm all features are working correctly.
 - [ ] **Creeper Safety**: Attack a Creeper. Does the dog ignore your command to attack it? (Expected: Dog should NOT attack creepers).
 - [ ] **Vanilla Creeper Behavior (v2.0.5)**: With NO dog around, does the Creeper track you, swell, and explode exactly like vanilla?
 
-## 🧪 4. Immortality (v2.2.3)
+## 🧪 4. Immortality (v2.2.4)
 - [ ] **Spawn State**: Use a Spawn Egg. Does the dog spawn standing up (Healthy)?
-- [ ] **Standard Downed**: Hit a dog until it whines and lays down (Should take multiple hits now as threshold is 10 HP).
+- [ ] **Standard Downed**: Hit a dog until it whines and lays down (100 HP total).
+- [ ] **Invulnerability**: While the dog is downed, try to hit it. Does it take any damage? (Expected: NO damage).
 - [ ] **Revival**: Feed the moaning dog some meat. Does it stand back up at full health?
-- [ ] **Post-Revival Test**: After reviving, can the dog enter the downed state AGAIN? (Wait for its health to drop to 10 HP again).
-- [ ] **One-Hit Protection**: Can the dog survive a Creeper explosion or massive damage hit and enter downed state?
+- [ ] **Cycling Test**: After reviving, let the dog take fatal damage AGAIN. Does it enter the downed state correctly a second/third time? (Fixes the one-time sensor bug).
+- [ ] **One-Hit Protection**: Can the dog survive a Creeper explosion and enter downed state? (Max damage cap test).
 
 ## 🧪 5. Breeding
 - [ ] **Puppies**: Feed meat to two tamed dogs. Do they produce a tiny puppy?
