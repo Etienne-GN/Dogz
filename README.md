@@ -18,7 +18,7 @@ High-fidelity dogs with advanced AI and survival mechanics.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
-* **Fixed Creeper Homing Missile (v2.0.2)**: Restored vanilla swelling/fuse/targeting behavior. Creepers now stop to swell and have normal damage sensing.
+* **Fixed Creeper AI & Targeting (v2.0.3)**: Restored `minecraft:behavior.melee_attack` for proper player tracking. Creepers now actively follow the player and swell/slow down as in vanilla.
 * **Cleaned AI (v1.4.28)**: Removed broken downed/immortal logic to restore stability. Fixed untamed dogs standing still by adding wild stroll behavior.
 
 ### ⚪ To-Do
@@ -79,10 +79,16 @@ To create the `.mcaddon` file for testing:
 
 ## 📜 Changelog
 
+### [2.0.3] - 2026-03-12
+#### Fixed
+- Fixed Creeper targeting: Added `minecraft:behavior.melee_attack` (track_target: true) to ensure Creepers follow the player.
+- Aligned Creeper AI priorities with vanilla 1.21.
+- Restored vanilla "slow down to swell" behavior.
+
 ### [2.0.2] - 2026-03-12
 #### Fixed
-- Complete restoration of vanilla Creeper behavior: Swelling, fuse slowing, and correct targeting.
-- Fixed malformed damage sensor (Creepers can now be killed normally).
+- Complete restoration of vanilla Creeper behavior components (Swellable, Swell).
+- Fixed malformed damage sensor.
 - Maintained "Creeper Repellent" (fleeing dogs).
 
 ### [2.0.0] - Rebranding
