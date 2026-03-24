@@ -33,8 +33,8 @@
         "controller.render.dog"
       ],
       "spawn_egg": {
-        "base_color": "#a87a4f",
-        "overlay_color": "#2c1c14"
+        "base_color": "#1A1A1A",
+        "overlay_color": "#D2B48C"
       }
     }
   }
