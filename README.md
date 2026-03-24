@@ -4,6 +4,9 @@ High-fidelity dogs with advanced AI and survival mechanics.
 ## 🗺 Roadmap
 
 ### 🟢 Verified
+* **Tail HP Indicator (v2.2.6)**: The height of your dog's tail tells you its health! (High = Healthy, Low = Hurt).
+* **AI Behavior Fixes (v2.2.6)**: Dogs no longer attack players.
+* **Nametag Visibility (v2.2.6)**: Nametags are no longer visible from excessive distances.
 * **Creeper Repellent (v2.1.0)**: Creepers now naturally flee dogs (identified as cats/ocelots) while maintaining perfect vanilla targeting/swelling/exploding behavior.
 * **Restricted State Transitions (v1.4.23)**: Fixed "Sit-Lay-Sit" bug. Dogs must stand up to switch between Sit and Lay states.
 * **Movement Lock (v1.4.10)**: Movement set to 0.0 while sitting/laying to prevent sliding.
@@ -33,9 +36,8 @@ High-fidelity dogs with advanced AI and survival mechanics.
 6. **Breeding & Puppies**: Enabling two adults to produce a baby.
 7. **Puppy Growth**: AI and scale logic for babies growing into adults.
 8. **Mixed Breeding**: Logic for cross-breeding different dog types.
-9. **Tail HP Indicator**: Health-based tail height (Requires safe Molang).
-10. **Begging Animation**: Head tilt when holding food (Requires safe Molang).
-11. **Smooth Update Protocol**: Transition to version-only updates (locking UUIDs) to allow mod updates without reinstallation.
+9. **Begging Animation**: Head tilt when holding food (Requires safe Molang).
+10. **Smooth Update Protocol**: Transition to version-only updates (locking UUIDs) to allow mod updates without reinstallation.
 
 ## 🐕 Dog Behavior Guide
 This guide explains how to interact with your new dogs and details their advanced AI behaviors.
@@ -81,6 +83,12 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.2.6] - 2026-03-23
+#### Fixed
+- **Player Neutrality**: Dogs no longer attack players.
+- **Nametag Distance**: Reduced visibility range of nametags.
+- **Tail Height Logic**: Correctly matches health state.
 
 ### [2.2.5] - 2026-03-12
 #### Fixed

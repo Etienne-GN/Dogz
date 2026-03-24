@@ -3,25 +3,46 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "dogz:chihuahua",
-      "materials": { "default": "entity_alphatest" },
-      "textures": { "default": "textures/entity/chihuahua/brown" },
-      "geometry": { "default": "geometry.dogz.chihuahua" },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/chihuahua/brown"
+      },
+      "geometry": {
+        "default": "geometry.dogz.chihuahua"
+      },
       "animations": {
         "walk": "animation.chihuahua.walk",
         "sit": "animation.chihuahua.sit",
         "lay_down": "animation.chihuahua.lay_down",
-        "look": "animation.common.look_at_target"
+        "look": "animation.common.look_at_target",
+        "tail_health": "animation.chihuahua.tail_health"
       },
       "scripts": {
         "animate": [
           "look",
-          { "walk": "query.modified_move_speed > 0.1 && !query.is_sitting" },
-          { "sit": "query.is_sitting && !query.is_sheared" },
-          { "lay_down": "query.is_sheared" }
+          {
+            "walk": "query.modified_move_speed > 0.1 && !query.is_sitting"
+          },
+          {
+            "sit": "query.is_sitting && !query.is_sheared"
+          },
+          {
+            "lay_down": "query.is_sheared"
+          },
+          {
+            "tail_health": "query.is_tamed"
+          }
         ]
       },
-      "render_controllers": [ "controller.render.dog" ],
-      "spawn_egg": { "base_color": "#8c603e", "overlay_color": "#2c1c14" }
+      "render_controllers": [
+        "controller.render.dog"
+      ],
+      "spawn_egg": {
+        "base_color": "#8c603e",
+        "overlay_color": "#2c1c14"
+      }
     }
   }
 }
