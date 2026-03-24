@@ -4,6 +4,7 @@ High-fidelity dogs with advanced AI and survival mechanics.
 ## 🗺 Roadmap
 
 ### 🟢 Verified
+* **New Breed: German Shepherd (v2.2.7)**: A powerful new companion with 50 HP, passive regeneration, and superior 24-block awareness.
 * **Tail HP Indicator (v2.2.6)**: The height of your dog's tail tells you its health! (High = Healthy, Low = Hurt).
 * **AI Behavior Fixes (v2.2.6)**: Dogs no longer attack players.
 * **Nametag Visibility (v2.2.6)**: Nametags are no longer visible from excessive distances.
@@ -45,6 +46,7 @@ This guide explains how to interact with your new dogs and details their advance
 ### Breeds
 1. **Golden Retriever**: Loyal, high health (20 HP), balanced speed.
 2. **Chihuahua**: Small, agile, faster movement, lower health (12 HP).
+3. **German Shepherd**: The ultimate guard dog. High health (50 HP), passive regeneration, and superior awareness (24-block range).
 
 ### 🍖 Taming & Healing
 - **Wild State**: Use a **Bone** to tame. Holding any **Meat** will cause wild dogs to follow you (Temptation).
@@ -83,6 +85,16 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.2.7] - 2026-03-23
+#### Added
+- **New Breed: German Shepherd**:
+  - Health: 50 HP (25 Hearts).
+  - Passive Regeneration: Heals 1 HP every 3 seconds.
+  - Superior Guarding: 24-block monster/creeper detection and attack range.
+  - Stronger Attack: Deals 6 damage (3 Hearts).
+  - Massive Healing: Meat restores significantly more HP (10 HP for raw, 20 HP for cooked).
+  - Guard Stance: Stays slightly further back from the owner (10-block follow start, 4-block stop).
 
 ### [2.2.6] - 2026-03-23
 #### Fixed
