@@ -82,49 +82,9 @@
           "event": "dogz:bark_start"
         }
       },
-      "dogz:standing_interact": {
-        "minecraft:sittable": {
-          "sit_event": { "event": "dogz:on_sit", "target": "self" },
-          "stand_event": { "event": "dogz:on_stand", "target": "self" }
-        },
-        "minecraft:interact": {
-          "interactions": [
-            {
-              "on_interact": {
-                "filters": {
-                  "all_of": [
-                    { "test": "is_owner", "subject": "other", "value": true },
-                    { "test": "is_sneaking", "subject": "other", "value": true }
-                  ]
-                },
-                "event": "dogz:lay_down"
-              },
-              "interact_text": "action.interact.laydown"
-            }
-          ]
-        }
-      },
-      "dogz:sitting_interact": {
-        "minecraft:sittable": { "sit_event": { "event": "dogz:on_sit", "target": "self" }, "stand_event": { "event": "dogz:on_stand", "target": "self" } }
-      },
-      "dogz:laying_interact": {
-        "minecraft:interact": {
-          "interactions": [
-            {
-              "on_interact": {
-                "filters": {
-                  "all_of": [
-                    { "test": "is_owner", "subject": "other", "value": true },
-                    { "test": "is_sneaking", "subject": "other", "value": true }
-                  ]
-                },
-                "event": "dogz:stand_up"
-              },
-              "interact_text": "action.interact.stand"
-            }
-          ]
-        }
-      },
+      "dogz:standing_interact": {},
+      "dogz:sitting_interact": {},
+      "dogz:laying_interact": {},
       "dogz:attack_ai": {
         "minecraft:behavior.owner_hurt_by_target": { "priority": 1 },
         "minecraft:behavior.owner_hurt_target": { "priority": 2 },
@@ -175,6 +135,9 @@
       },
       "dogz:bark_cooldown": {
         "minecraft:timer": { "time": 3.0, "time_down_event": { "event": "dogz:bark_reset", "target": "self" } }
+      },
+      "dogz:guard_ai": {
+        "minecraft:behavior.random_stroll": { "priority": 7, "speed_multiplier": 0.5 }
       },
       "dogz:downed": {
         "minecraft:is_shaking": {}, "minecraft:is_sheared": {}, "minecraft:behavior.sit": { "priority": 1 }, "minecraft:behavior.stay_while_sitting": { "priority": 1 }, "minecraft:movement": { "value": 0.0 },
@@ -280,7 +243,15 @@
         "add": { "component_groups": [ "dogz:alive", "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] },
         "queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 1 1" ] }
       },
-      "dogz:play_whine": { "queue_command": { "command": [ "playsound mob.wolf.whine @a ~ ~ ~ 0.5 1" ] } }
+      "dogz:play_whine": { "queue_command": { "command": [ "playsound mob.wolf.whine @a ~ ~ ~ 0.5 1" ] } },
+      "dogz:set_guard": {
+        "remove": { "component_groups": [ "dogz:follow_ai" ] },
+        "add":    { "component_groups": [ "dogz:guard_ai"  ] }
+      },
+      "dogz:set_follow": {
+        "remove": { "component_groups": [ "dogz:guard_ai"  ] },
+        "add":    { "component_groups": [ "dogz:follow_ai" ] }
+      }
     }
   }
 }

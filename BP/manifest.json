@@ -4,20 +4,37 @@
     "name": "Dogz BP",
     "description": "Custom dogs for Minecraft",
     "uuid": "4b597f2b-a25c-4850-b86d-c3927a4eeb7e",
-    "version": [2, 2, 7],
+    "version": [2, 3, 0],
     "min_engine_version": [1, 21, 0]
   },
   "modules": [
     {
+      "description": "Scripting Module",
+      "type": "script",
+      "language": "javascript",
+      "uuid": "c7d8e9f0-a1b2-4c3d-8e4f-5a6b7c8d9e0f",
+      "version": [2, 3, 0],
+      "entry": "scripts/main.js"
+    },
+    {
       "type": "data",
       "uuid": "8c2dcd13-0a77-4911-af6d-9bc933871b60",
-      "version": [2, 2, 7]
+      "version": [2, 3, 0]
     }
   ],
   "dependencies": [
     {
+      "module_name": "@minecraft/server",
+      "version": "1.13.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "1.2.0"
+    },
+    {
       "uuid": "4658db83-8b6a-44a6-aad3-1c653918d2e5",
-      "version": [2, 2, 7]
+      "version": [2, 3, 0]
     }
-  ]
+  ],
+  "capabilities": ["script_eval"]
 }

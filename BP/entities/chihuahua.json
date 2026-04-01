@@ -194,80 +194,9 @@
           "event": "dogz:bark_start"
         }
       },
-      "dogz:standing_interact": {
-        "minecraft:sittable": {
-          "sit_event": {
-            "event": "dogz:on_sit",
-            "target": "self"
-          },
-          "stand_event": {
-            "event": "dogz:on_stand",
-            "target": "self"
-          }
-        },
-        "minecraft:interact": {
-          "interactions": [
-            {
-              "on_interact": {
-                "filters": {
-                  "all_of": [
-                    {
-                      "test": "is_owner",
-                      "subject": "other",
-                      "value": true
-                    },
-                    {
-                      "test": "is_sneaking",
-                      "subject": "other",
-                      "value": true
-                    }
-                  ]
-                },
-                "event": "dogz:lay_down"
-              },
-              "interact_text": "action.interact.laydown"
-            }
-          ]
-        }
-      },
-      "dogz:sitting_interact": {
-        "minecraft:sittable": {
-          "sit_event": {
-            "event": "dogz:on_sit",
-            "target": "self"
-          },
-          "stand_event": {
-            "event": "dogz:on_stand",
-            "target": "self"
-          }
-        }
-      },
-      "dogz:laying_interact": {
-        "minecraft:interact": {
-          "interactions": [
-            {
-              "on_interact": {
-                "filters": {
-                  "all_of": [
-                    {
-                      "test": "is_owner",
-                      "subject": "other",
-                      "value": true
-                    },
-                    {
-                      "test": "is_sneaking",
-                      "subject": "other",
-                      "value": true
-                    }
-                  ]
-                },
-                "event": "dogz:stand_up"
-              },
-              "interact_text": "action.interact.stand"
-            }
-          ]
-        }
-      },
+      "dogz:standing_interact": {},
+      "dogz:sitting_interact": {},
+      "dogz:laying_interact": {},
       "dogz:attack_ai": {
         "minecraft:behavior.owner_hurt_by_target": {
           "priority": 1
@@ -382,6 +311,12 @@
             "event": "dogz:bark_reset",
             "target": "self"
           }
+        }
+      },
+      "dogz:guard_ai": {
+        "minecraft:behavior.random_stroll": {
+          "priority": 7,
+          "speed_multiplier": 0.5
         }
       },
       "dogz:downed": {
@@ -774,6 +709,30 @@
         "queue_command": {
           "command": [
             "playsound mob.wolf.whine @a ~ ~ ~ 0.5 1"
+          ]
+        }
+      },
+      "dogz:set_guard": {
+        "remove": {
+          "component_groups": [
+            "dogz:follow_ai"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dogz:guard_ai"
+          ]
+        }
+      },
+      "dogz:set_follow": {
+        "remove": {
+          "component_groups": [
+            "dogz:guard_ai"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dogz:follow_ai"
           ]
         }
       }
