@@ -23,10 +23,6 @@
       },
       "dogz:alive": {
         "minecraft:health": { "value": 50, "max": 50 },
-        "minecraft:health_regenerable": {
-          "regen_tick": 60,
-          "regen_amount": 1
-        },
         "minecraft:damage_sensor": {
           "triggers": [
             {
@@ -47,7 +43,7 @@
         }
       },
       "dogz:tamed_base": {
-        "minecraft:is_tame": {},
+        "minecraft:is_tamed": {},
         "minecraft:leashable": { "soft_distance": 2.0, "hard_distance": 4.0, "max_distance": 10.0 },
         "minecraft:breedable": {
           "require_tame": true,
@@ -140,7 +136,7 @@
         "minecraft:behavior.random_stroll": { "priority": 7, "speed_multiplier": 0.5 }
       },
       "dogz:downed": {
-        "minecraft:is_shaking": {}, "minecraft:is_sheared": {}, "minecraft:behavior.sit": { "priority": 1 }, "minecraft:behavior.stay_while_sitting": { "priority": 1 }, "minecraft:movement": { "value": 0.0 },
+        "minecraft:is_shaking": {}, "minecraft:is_sheared": {}, "minecraft:is_sitting": {}, "minecraft:behavior.stay_while_sitting": { "priority": 1 }, "minecraft:movement": { "value": 0.0 },
         "minecraft:damage_sensor": { "triggers": [ { "deals_damage": false } ] },
         "minecraft:interact": {
           "interactions": [
@@ -179,13 +175,14 @@
       "minecraft:movement.basic": {}, "minecraft:jump.static": {}, "minecraft:can_climb": {}, "minecraft:physics": {}, "minecraft:pushable": { "is_pushable": true },
       "minecraft:collision_box": { "width": 0.6, "height": 0.85 },
       "minecraft:behavior.float": { "priority": 0 },
+      "minecraft:behavior.sit": { "priority": 1 },
       "minecraft:behavior.look_at_player": { "priority": 8, "look_distance": 16.0 },
       "minecraft:behavior.random_look_around": { "priority": 9 },
       "minecraft:damage_sensor": {
         "triggers": [
           {
             "on_damage": {
-              "filters": { "all_of": [ { "test": "is_tame" }, { "test": "has_component", "subject": "self", "operator": "==", "value": "minecraft:is_baby" } ] },
+              "filters": { "all_of": [ { "test": "is_tamed" }, { "test": "has_component", "subject": "self", "operator": "==", "value": "minecraft:is_baby" } ] },
               "deals_damage": false
             }
           }

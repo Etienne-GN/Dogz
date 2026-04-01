@@ -74,7 +74,7 @@
         }
       },
       "dogz:tamed_base": {
-        "minecraft:is_tame": {},
+        "minecraft:is_tamed": {},
         "minecraft:leashable": {
           "soft_distance": 2.0,
           "hard_distance": 4.0,
@@ -256,9 +256,7 @@
       },
       "dogz:sitting": {
         "minecraft:is_baby": {},
-        "minecraft:behavior.sit": {
-          "priority": 1
-        },
+        "minecraft:is_sitting": {},
         "minecraft:behavior.stay_while_sitting": {
           "priority": 1
         }
@@ -266,9 +264,7 @@
       "dogz:laying": {
         "minecraft:is_baby": {},
         "minecraft:is_sheared": {},
-        "minecraft:behavior.sit": {
-          "priority": 1
-        },
+        "minecraft:is_sitting": {},
         "minecraft:behavior.stay_while_sitting": {
           "priority": 1
         }
@@ -326,9 +322,7 @@
           "value": 1,
           "max": 100
         },
-        "minecraft:behavior.sit": {
-          "priority": 1
-        },
+        "minecraft:is_sitting": {},
         "minecraft:behavior.stay_while_sitting": {
           "priority": 1
         },
@@ -454,6 +448,9 @@
       "minecraft:behavior.float": {
         "priority": 0
       },
+      "minecraft:behavior.sit": {
+        "priority": 1
+      },
       "minecraft:behavior.look_at_player": {
         "priority": 8,
         "look_distance": 8.0
@@ -468,7 +465,7 @@
               "filters": {
                 "all_of": [
                   {
-                    "test": "is_tame"
+                    "test": "is_tamed"
                   },
                   {
                     "test": "has_component",

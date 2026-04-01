@@ -12,7 +12,7 @@ world.beforeEvents.playerInteractWithEntity.subscribe((ev) => {
     const dog = ev.target;
     if (!DOGZ_TYPES.has(dog.typeId)) return;
     if (!ev.player.isSneaking) return;
-    if (!dog.hasComponent("minecraft:is_tame")) return;   // wild dog — let taming proceed
+    if (!dog.hasComponent("minecraft:is_tamed")) return;   // wild dog — let taming proceed
     if (dog.hasComponent("minecraft:is_shaking")) return; // downed — let revival interact fire
     ev.cancel = true;
     system.run(() => showDogMenu(ev.player, dog));
@@ -21,8 +21,9 @@ world.beforeEvents.playerInteractWithEntity.subscribe((ev) => {
 // ─── Main Menu ────────────────────────────────────────────────────────────────
 
 function showDogMenu(player, dog) {
-    const isSitting  = dog.hasComponent("minecraft:is_baby") && !dog.hasComponent("minecraft:is_sheared");
-    const isLaying   = dog.hasComponent("minecraft:is_baby") &&  dog.hasComponent("minecraft:is_sheared");
+    const isSittingGlobal = dog.hasComponent("minecraft:is_sitting");
+    const isSitting  = isSittingGlobal && !dog.hasComponent("minecraft:is_sheared");
+    const isLaying   = isSittingGlobal &&  dog.hasComponent("minecraft:is_sheared");
     const isGuarding = dog.hasTag("dogz:is_guarding");
     const guardRadius = dog.getDynamicProperty("guardRadius") ?? 5;
 
