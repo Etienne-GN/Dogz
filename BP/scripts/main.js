@@ -21,9 +21,8 @@ world.beforeEvents.playerInteractWithEntity.subscribe((ev) => {
 // ─── Main Menu ────────────────────────────────────────────────────────────────
 
 function showDogMenu(player, dog) {
-    const isSittingGlobal = dog.hasComponent("minecraft:is_sitting");
-    const isSitting  = isSittingGlobal && !dog.hasComponent("minecraft:is_sheared");
-    const isLaying   = isSittingGlobal &&  dog.hasComponent("minecraft:is_sheared");
+    const isSitting  = dog.hasComponent("minecraft:is_baby") && !dog.hasComponent("minecraft:is_sheared");
+    const isLaying   = dog.hasComponent("minecraft:is_baby") &&  dog.hasComponent("minecraft:is_sheared");
     const isGuarding = dog.hasTag("dogz:is_guarding");
     const guardRadius = dog.getDynamicProperty("guardRadius") ?? 5;
 
