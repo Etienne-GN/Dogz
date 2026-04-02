@@ -12,7 +12,7 @@ world.beforeEvents.playerInteractWithEntity.subscribe((ev) => {
     const dog = ev.target;
     if (!DOGZ_TYPES.has(dog.typeId)) return;
     if (!ev.player.isSneaking) return;
-    if (!dog.hasComponent("minecraft:is_tamed")) return;   // wild dog — let taming proceed
+    if (!dog.hasComponent("minecraft:is_tame")) return;   // wild dog — let taming proceed
     if (dog.hasComponent("minecraft:is_shaking")) return; // downed — let revival interact fire
     ev.cancel = true;
     system.run(() => showDogMenu(ev.player, dog));
