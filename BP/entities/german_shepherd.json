@@ -15,18 +15,13 @@
           "tame_event": { "event": "minecraft:on_tame", "target": "self" }
         },
         "minecraft:behavior.tempt": {
-          "priority": 4,
-          "speed_multiplier": 1.2,
+          "priority": 4, "speed_multiplier": 1.2,
           "items": [ "bone", "beef", "cooked_beef", "chicken", "cooked_chicken", "porkchop", "cooked_porkchop", "muttonRaw", "muttonCooked", "rabbit", "cooked_rabbit", "rotten_flesh" ]
         },
         "minecraft:behavior.random_stroll": { "priority": 7, "speed_multiplier": 0.8 }
       },
       "dogz:alive": {
         "minecraft:health": { "value": 50, "max": 50 },
-        "minecraft:health_regenerable": {
-          "regen_tick": 60,
-          "regen_amount": 1
-        },
         "minecraft:damage_sensor": {
           "triggers": [
             {
@@ -38,8 +33,7 @@
             {
               "on_damage": {
                 "filters": { "test": "has_damage", "value": "fatal" },
-                "event": "dogz:on_downed",
-                "target": "self"
+                "event": "dogz:on_downed", "target": "self"
               },
               "deals_damage": false
             }
@@ -55,21 +49,17 @@
         },
         "minecraft:healable": {
           "items": [
-            { "item": "beef", "heal_amount": 10 },
-            { "item": "cooked_beef", "heal_amount": 20 },
-            { "item": "chicken", "heal_amount": 10 },
-            { "item": "cooked_chicken", "heal_amount": 20 },
-            { "item": "porkchop", "heal_amount": 10 },
-            { "item": "cooked_porkchop", "heal_amount": 20 },
-            { "item": "muttonRaw", "heal_amount": 10 },
-            { "item": "muttonCooked", "heal_amount": 20 },
-            { "item": "rabbit", "heal_amount": 10 },
-            { "item": "cooked_rabbit", "heal_amount": 20 },
+            { "item": "beef", "heal_amount": 10 }, { "item": "cooked_beef", "heal_amount": 20 },
+            { "item": "chicken", "heal_amount": 10 }, { "item": "cooked_chicken", "heal_amount": 20 },
+            { "item": "porkchop", "heal_amount": 10 }, { "item": "cooked_porkchop", "heal_amount": 20 },
+            { "item": "muttonRaw", "heal_amount": 10 }, { "item": "muttonCooked", "heal_amount": 20 },
+            { "item": "rabbit", "heal_amount": 10 }, { "item": "cooked_rabbit", "heal_amount": 20 },
             { "item": "rotten_flesh", "heal_amount": 10 }
           ]
         },
         "minecraft:entity_sensor": {
           "sensor_range": 24.0, "relative_range": false, "require_all": false,
+          "event": "dogz:bark_start",
           "event_filters": {
             "all_of": [
               { "any_of": [ { "test": "is_family", "subject": "other", "value": "monster" }, { "test": "is_family", "subject": "other", "value": "creeper" } ] },
@@ -78,53 +68,12 @@
               { "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_stunned" },
               { "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:is_shaking" }
             ]
-          },
-          "event": "dogz:bark_start"
+          }
         }
       },
-      "dogz:standing_interact": {
-        "minecraft:sittable": {
-          "sit_event": { "event": "dogz:on_sit", "target": "self" },
-          "stand_event": { "event": "dogz:on_stand", "target": "self" }
-        },
-        "minecraft:interact": {
-          "interactions": [
-            {
-              "on_interact": {
-                "filters": {
-                  "all_of": [
-                    { "test": "is_owner", "subject": "other", "value": true },
-                    { "test": "is_sneaking", "subject": "other", "value": true }
-                  ]
-                },
-                "event": "dogz:lay_down"
-              },
-              "interact_text": "action.interact.laydown"
-            }
-          ]
-        }
-      },
-      "dogz:sitting_interact": {
-        "minecraft:sittable": { "sit_event": { "event": "dogz:on_sit", "target": "self" }, "stand_event": { "event": "dogz:on_stand", "target": "self" } }
-      },
-      "dogz:laying_interact": {
-        "minecraft:interact": {
-          "interactions": [
-            {
-              "on_interact": {
-                "filters": {
-                  "all_of": [
-                    { "test": "is_owner", "subject": "other", "value": true },
-                    { "test": "is_sneaking", "subject": "other", "value": true }
-                  ]
-                },
-                "event": "dogz:stand_up"
-              },
-              "interact_text": "action.interact.stand"
-            }
-          ]
-        }
-      },
+      "dogz:standing_interact": {},
+      "dogz:sitting_interact": {},
+      "dogz:laying_interact": {},
       "dogz:attack_ai": {
         "minecraft:behavior.owner_hurt_by_target": { "priority": 1 },
         "minecraft:behavior.owner_hurt_target": { "priority": 2 },
@@ -154,13 +103,13 @@
       },
       "dogz:sitting": {
         "minecraft:is_baby": {},
-        "minecraft:behavior.sit": { "priority": 1 },
+        "minecraft:sittable": { "sit_event": { "event": "dogz:on_sit", "target": "self" }, "stand_event": { "event": "dogz:on_stand", "target": "self" } },
         "minecraft:behavior.stay_while_sitting": { "priority": 1 }
       },
       "dogz:laying": {
         "minecraft:is_baby": {},
         "minecraft:is_sheared": {},
-        "minecraft:behavior.sit": { "priority": 1 },
+        "minecraft:sittable": { "sit_event": { "event": "dogz:on_sit", "target": "self" }, "stand_event": { "event": "dogz:on_stand", "target": "self" } },
         "minecraft:behavior.stay_while_sitting": { "priority": 1 }
       },
       "dogz:barking_state": {
@@ -176,8 +125,15 @@
       "dogz:bark_cooldown": {
         "minecraft:timer": { "time": 3.0, "time_down_event": { "event": "dogz:bark_reset", "target": "self" } }
       },
+      "dogz:guard_ai": {
+        "minecraft:behavior.random_stroll": { "priority": 7, "speed_multiplier": 0.5 }
+      },
       "dogz:downed": {
-        "minecraft:is_shaking": {}, "minecraft:is_sheared": {}, "minecraft:behavior.sit": { "priority": 1 }, "minecraft:behavior.stay_while_sitting": { "priority": 1 }, "minecraft:movement": { "value": 0.0 },
+        "minecraft:is_shaking": {}, "minecraft:is_sheared": {}, "minecraft:is_baby": {},
+        "minecraft:health": { "value": 1, "max": 100 },
+        "minecraft:sittable": { "sit_event": { "event": "dogz:on_sit", "target": "self" }, "stand_event": { "event": "dogz:on_stand", "target": "self" } },
+        "minecraft:behavior.stay_while_sitting": { "priority": 1 },
+        "minecraft:movement": { "value": 0.0 },
         "minecraft:damage_sensor": { "triggers": [ { "deals_damage": false } ] },
         "minecraft:interact": {
           "interactions": [
@@ -199,8 +155,7 @@
                     }
                   ]
                 },
-                "event": "dogz:on_revived",
-                "target": "self"
+                "event": "dogz:on_revived", "target": "self"
               },
               "use_item": true, "play_sounds": "eat", "interact_text": "action.interact.revive"
             }
@@ -280,7 +235,9 @@
         "add": { "component_groups": [ "dogz:alive", "dogz:follow_ai", "dogz:attack_ai", "dogz:movement_active", "dogz:standing_interact" ] },
         "queue_command": { "command": [ "playsound mob.wolf.bark @a ~ ~ ~ 1 1" ] }
       },
-      "dogz:play_whine": { "queue_command": { "command": [ "playsound mob.wolf.whine @a ~ ~ ~ 0.5 1" ] } }
+      "dogz:play_whine": { "queue_command": { "command": [ "playsound mob.wolf.whine @a ~ ~ ~ 0.5 1" ] } },
+      "dogz:set_guard": { "remove": { "component_groups": [ "dogz:follow_ai" ] }, "add": { "component_groups": [ "dogz:guard_ai" ] } },
+      "dogz:set_follow": { "remove": { "component_groups": [ "dogz:guard_ai" ] }, "add": { "component_groups": [ "dogz:follow_ai" ] } }
     }
   }
 }
