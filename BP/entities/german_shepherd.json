@@ -98,7 +98,7 @@
         "minecraft:navigation.walk": { "can_path_over_water": true, "avoid_damage_blocks": true, "can_jump": true }
       },
       "dogz:follow_ai": {
-        "minecraft:behavior.follow_owner": { "priority": 1, "speed_multiplier": 1.5, "start_distance": 10.0, "stop_distance": 4.0 },
+        "minecraft:behavior.follow_owner": { "priority": 6, "speed_multiplier": 1.5, "start_distance": 10.0, "stop_distance": 4.0 },
         "minecraft:behavior.random_stroll": { "priority": 7, "speed_multiplier": 0.8 }
       },
       "dogz:sitting": {

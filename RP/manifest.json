@@ -4,14 +4,14 @@
     "name": "Dogz RP",
     "description": "Resources for custom dogs",
     "uuid": "4658db83-8b6a-44a6-aad3-1c653918d2e5",
-    "version": [2, 3, 1],
+    "version": [2, 3, 2],
     "min_engine_version": [1, 21, 0]
   },
   "modules": [
     {
       "type": "resources",
       "uuid": "5245a2ae-357e-451c-949d-efb4f22384c0",
-      "version": [2, 3, 1]
+      "version": [2, 3, 2]
     }
   ]
 }
