@@ -41,7 +41,6 @@
         }
       },
       "dogz:tamed_base": {
-        "minecraft:is_tame": {},
         "minecraft:leashable": { "soft_distance": 2.0, "hard_distance": 4.0, "max_distance": 10.0 },
         "minecraft:breedable": {
           "require_tame": true,
@@ -177,7 +176,7 @@
         "triggers": [
           {
             "on_damage": {
-              "filters": { "all_of": [ { "test": "is_tame" }, { "test": "has_component", "subject": "self", "operator": "==", "value": "minecraft:is_baby" } ] },
+              "filters": { "all_of": [ { "test": "is_tamed" }, { "test": "has_component", "subject": "self", "operator": "==", "value": "minecraft:is_baby" } ] },
               "deals_damage": false
             }
           }
