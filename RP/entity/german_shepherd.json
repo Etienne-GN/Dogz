@@ -14,11 +14,11 @@
         "default": "geometry.dog_german_shepherd"
       },
       "animations": {
-        "walk": "animation.retriever.walk",
-        "sit": "animation.retriever.sit",
-        "lay_down": "animation.retriever.lay_down",
+        "walk": "animation.german_shepherd.walk",
+        "sit": "animation.german_shepherd.sit",
+        "lay_down": "animation.german_shepherd.lay_down",
         "look": "animation.common.look_at_target",
-        "tail_health": "animation.retriever.tail_health"
+        "tail_health": "animation.german_shepherd.tail_health"
       },
       "scripts": {
         "animate": [
