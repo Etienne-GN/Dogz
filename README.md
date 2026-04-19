@@ -22,6 +22,7 @@ High-fidelity dogs with advanced AI and survival mechanics.
 * **No Natural Spawning**: Dogs are strictly Spawn Egg only.
 
 ### 🔵 To Test
+* **New Breed: Husky (v2.3.5)**: Sturdy guard variant — 40 HP, attack 5, 20-block awareness, slightly faster movement (0.32), and immune to freezing/cold damage. Geometry & textures sourced from `better_dogs-v0.11` example pack (mane intact).
 * **Fixed Dog Revival Logic (v2.2.5)**: Replaced unreliable `minecraft:healable` with a robust `minecraft:interact` system. Revival now consistently triggers when using meat.
 * **State-Cycling Immortality (v2.2.4)**: Implemented component group cycling to "re-arm" the damage sensor upon revival.
 * **Fatal Damage Intercept (v2.2.4)**: Switched to `has_damage: fatal` sensor for 100% reliable death prevention.
@@ -47,6 +48,7 @@ This guide explains how to interact with your new dogs and details their advance
 1. **Golden Retriever**: Loyal, high health (20 HP), balanced speed.
 2. **Chihuahua**: Small, agile, faster movement, lower health (12 HP).
 3. **German Shepherd**: The ultimate guard dog. High health (50 HP), passive regeneration, and superior awareness (24-block range).
+4. **Husky**: Sturdy snow-dog guard. 40 HP, slightly faster than other guards, 20-block monster awareness, and immune to cold/freezing damage. Distinctive fluffy mane.
 
 ### 🍖 Taming & Healing
 - **Wild State**: Use a **Bone** to tame. Holding any **Meat** will cause wild dogs to follow you (Temptation).
@@ -85,6 +87,17 @@ To create the `.mcaddon` file for testing:
 1. From the project root, run: `./package_addon.sh Dogz`
 
 ## 📜 Changelog
+
+### [2.3.5] - 2026-04-18
+#### Added
+- **New Breed: Husky** — sturdy guard companion adapted from the `better_dogs-v0.11` example pack.
+  - Health: 40 HP.
+  - Attack: 5 damage.
+  - Movement: 0.32 (slightly faster than the German Shepherd).
+  - Detection range: 20 blocks (monsters/creepers).
+  - Cold immunity: takes no damage from `freezing` or `cold` sources.
+  - Geometry `geometry.dog_husky` (converted to format 1.12.0) with the husky mane bones preserved.
+  - Spawn egg: light grey base / icy blue overlay.
 
 ### [2.2.7] - 2026-03-23
 #### Added

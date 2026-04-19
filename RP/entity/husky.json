@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "dogz:husky",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/husky/tamed",
+        "wild": "textures/entity/husky/wild"
+      },
+      "geometry": {
+        "default": "geometry.dog_husky"
+      },
+      "animations": {
+        "walk": "animation.husky.walk",
+        "sit": "animation.husky.sit",
+        "lay_down": "animation.husky.lay_down",
+        "look": "animation.common.look_at_target",
+        "tail_health": "animation.husky.tail_health"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          { "walk": "query.modified_move_speed > 0.1 && !query.is_sitting" },
+          { "sit": "query.is_sitting && !query.is_sheared" },
+          { "lay_down": "query.is_sheared" },
+          { "tail_health": "query.is_tamed" }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.dog"
+      ],
+      "spawn_egg": {
+        "base_color": "#E0E0E0",
+        "overlay_color": "#5BA5C7"
+      }
+    }
+  }
+}
