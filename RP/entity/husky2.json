@@ -8,7 +8,7 @@
       },
       "textures": {
         "default": "textures/entity/husky2/tamed",
-        "wild": "textures/entity/husky2/wild"
+        "wild": "textures/entity/husky2/tamed"
       },
       "geometry": {
         "default": "geometry.dog_husky2"

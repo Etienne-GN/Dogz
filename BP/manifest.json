@@ -7,7 +7,7 @@
     "version": [
       2,
       3,
-      6
+      7
     ],
     "min_engine_version": [
       1,
@@ -24,7 +24,7 @@
       "version": [
         2,
         3,
-        6
+        7
       ],
       "entry": "scripts/main.js"
     },
@@ -34,25 +34,33 @@
       "version": [
         2,
         3,
-        6
+        7
       ]
     }
   ],
   "dependencies": [
     {
       "module_name": "@minecraft/server",
-      "version": "1.13.0"
+      "version": [
+        2,
+        3,
+        7
+      ]
     },
     {
       "module_name": "@minecraft/server-ui",
-      "version": "1.2.0"
+      "version": [
+        2,
+        3,
+        7
+      ]
     },
     {
       "uuid": "4658db83-8b6a-44a6-aad3-1c653918d2e5",
       "version": [
         2,
         3,
-        6
+        7
       ]
     }
   ],
