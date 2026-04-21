@@ -2,23 +2,23 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "dogz:german_shepherd",
+      "identifier": "dogz:husky2",
       "materials": {
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/german_shepherd/tamed",
-        "wild": "textures/entity/german_shepherd/wild"
+        "default": "textures/entity/husky2/tamed",
+        "wild": "textures/entity/husky2/wild"
       },
       "geometry": {
-        "default": "geometry.dog_german_shepherd"
+        "default": "geometry.dog_husky2"
       },
       "animations": {
-        "walk": "animation.german_shepherd.walk",
-        "sit": "animation.german_shepherd.sit",
-        "lay_down": "animation.german_shepherd.lay_down",
+        "walk": "animation.husky2.walk",
+        "sit": "animation.husky2.sit",
+        "lay_down": "animation.husky2.lay_down",
         "look": "animation.common.look_at_target",
-        "tail_health": "animation.german_shepherd.tail_health"
+        "tail_health": "animation.husky2.tail_health"
       },
       "scripts": {
         "animate": [
@@ -33,8 +33,8 @@
         "controller.render.dog"
       ],
       "spawn_egg": {
-        "base_color": "#4A3728",
-        "overlay_color": "#C8A96E"
+        "base_color": "#2D2D2D",
+        "overlay_color": "#E8E8E8"
       }
     }
   }

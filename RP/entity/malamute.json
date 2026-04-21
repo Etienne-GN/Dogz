@@ -2,23 +2,23 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "dogz:german_shepherd",
+      "identifier": "dogz:malamute",
       "materials": {
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/german_shepherd/tamed",
-        "wild": "textures/entity/german_shepherd/wild"
+        "default": "textures/entity/malamute/tamed",
+        "wild": "textures/entity/malamute/wild"
       },
       "geometry": {
-        "default": "geometry.dog_german_shepherd"
+        "default": "geometry.dog_malamute"
       },
       "animations": {
-        "walk": "animation.german_shepherd.walk",
-        "sit": "animation.german_shepherd.sit",
-        "lay_down": "animation.german_shepherd.lay_down",
+        "walk": "animation.malamute.walk",
+        "sit": "animation.malamute.sit",
+        "lay_down": "animation.malamute.lay_down",
         "look": "animation.common.look_at_target",
-        "tail_health": "animation.german_shepherd.tail_health"
+        "tail_health": "animation.malamute.tail_health"
       },
       "scripts": {
         "animate": [
@@ -33,8 +33,8 @@
         "controller.render.dog"
       ],
       "spawn_egg": {
-        "base_color": "#4A3728",
-        "overlay_color": "#C8A96E"
+        "base_color": "#8B7355",
+        "overlay_color": "#F0EAD6"
       }
     }
   }

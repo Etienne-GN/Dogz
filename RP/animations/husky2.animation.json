@@ -1,7 +1,7 @@
 {
   "format_version": "1.8.0",
   "animations": {
-    "animation.german_shepherd.walk": {
+    "animation.husky2.walk": {
       "loop": true,
       "bones": {
         "leg0blood": { "rotation": [ "math.cos(query.modified_distance_moved * 38.17) * 40", 0, 0 ] },
@@ -11,7 +11,7 @@
         "tail3": { "rotation": [ 0, "math.cos(query.modified_distance_moved * 38.17) * 20", 0 ] }
       }
     },
-    "animation.german_shepherd.sit": {
+    "animation.husky2.sit": {
       "loop": true,
       "bones": {
         "body": { "rotation": [ -37.5, 0, 0 ], "position": [ 0, -3, 0 ] },
@@ -21,7 +21,7 @@
         "leg1blood": { "rotation": [ 90, 0, 0 ], "position": [ 0, 5, -3 ] }
       }
     },
-    "animation.german_shepherd.lay_down": {
+    "animation.husky2.lay_down": {
       "loop": true,
       "bones": {
         "body": { "position": [ 0, -7, 0 ] },
@@ -33,7 +33,7 @@
         "tail3": { "rotation": [ 10, 0, 0 ] }
       }
     },
-    "animation.german_shepherd.tail_health": {
+    "animation.husky2.tail_health": {
       "loop": true,
       "bones": {
         "tail3": {

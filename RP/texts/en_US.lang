@@ -9,3 +9,7 @@ entity.dogz:german_shepherd.name=German Shepherd
 item.spawn_egg.entity.dogz:german_shepherd.name=Spawn German Shepherd
 entity.dogz:husky.name=Husky
 item.spawn_egg.entity.dogz:husky.name=Spawn Husky
+entity.dogz:husky2.name=Husky
+item.spawn_egg.entity.dogz:husky2.name=Spawn Husky
+entity.dogz:malamute.name=Malamute
+item.spawn_egg.entity.dogz:malamute.name=Spawn Malamute

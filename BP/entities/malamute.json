@@ -2,7 +2,7 @@
   "format_version": "1.20.0",
   "minecraft:entity": {
     "description": {
-      "identifier": "dogz:german_shepherd",
+      "identifier": "dogz:malamute",
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false
@@ -21,13 +21,22 @@
         "minecraft:behavior.random_stroll": { "priority": 7, "speed_multiplier": 0.8 }
       },
       "dogz:alive": {
-        "minecraft:health": { "value": 50, "max": 50 },
+        "minecraft:health": { "value": 45, "max": 45 },
         "minecraft:damage_sensor": {
           "triggers": [
             {
               "on_damage": {
                 "filters": { "test": "is_family", "subject": "self", "value": "dog" },
                 "max_damage": 15
+              }
+            },
+            {
+              "on_damage": {
+                "filters": { "any_of": [
+                  { "test": "has_damage", "value": "freezing" },
+                  { "test": "has_damage", "value": "cold" }
+                ] },
+                "deals_damage": false
               }
             },
             {
@@ -44,20 +53,20 @@
         "minecraft:leashable": { "soft_distance": 2.0, "hard_distance": 4.0, "max_distance": 10.0 },
         "minecraft:breedable": {
           "require_tame": true,
-          "breeds_with": [ { "mate_type": "dogz:german_shepherd", "baby_type": "dogz:german_shepherd", "breed_items": [ "beef", "cooked_beef", "chicken", "cooked_chicken", "porkchop", "cooked_porkchop" ] } ]
+          "breeds_with": [ { "mate_type": "dogz:malamute", "baby_type": "dogz:malamute", "breed_items": [ "beef", "cooked_beef", "chicken", "cooked_chicken", "porkchop", "cooked_porkchop" ] } ]
         },
         "minecraft:healable": {
           "items": [
-            { "item": "beef", "heal_amount": 10 }, { "item": "cooked_beef", "heal_amount": 20 },
-            { "item": "chicken", "heal_amount": 10 }, { "item": "cooked_chicken", "heal_amount": 20 },
-            { "item": "porkchop", "heal_amount": 10 }, { "item": "cooked_porkchop", "heal_amount": 20 },
-            { "item": "muttonRaw", "heal_amount": 10 }, { "item": "muttonCooked", "heal_amount": 20 },
-            { "item": "rabbit", "heal_amount": 10 }, { "item": "cooked_rabbit", "heal_amount": 20 },
-            { "item": "rotten_flesh", "heal_amount": 10 }
+            { "item": "beef", "heal_amount": 9 }, { "item": "cooked_beef", "heal_amount": 18 },
+            { "item": "chicken", "heal_amount": 9 }, { "item": "cooked_chicken", "heal_amount": 18 },
+            { "item": "porkchop", "heal_amount": 9 }, { "item": "cooked_porkchop", "heal_amount": 18 },
+            { "item": "muttonRaw", "heal_amount": 9 }, { "item": "muttonCooked", "heal_amount": 18 },
+            { "item": "rabbit", "heal_amount": 9 }, { "item": "cooked_rabbit", "heal_amount": 18 },
+            { "item": "rotten_flesh", "heal_amount": 9 }
           ]
         },
         "minecraft:entity_sensor": {
-          "sensor_range": 24.0, "relative_range": false, "require_all": false,
+          "sensor_range": 20.0, "relative_range": false, "require_all": false,
           "event": "dogz:bark_start",
           "event_filters": {
             "all_of": [
@@ -86,18 +95,18 @@
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "creeper" }
                 ]
               },
-              "max_dist": 24
+              "max_dist": 20
             }
           ]
         },
         "minecraft:behavior.melee_attack": { "priority": 3 }
       },
       "dogz:movement_active": {
-        "minecraft:movement": { "value": 0.32 },
+        "minecraft:movement": { "value": 0.30 },
         "minecraft:navigation.walk": { "can_path_over_water": true, "avoid_damage_blocks": true, "can_jump": true }
       },
       "dogz:follow_ai": {
-        "minecraft:behavior.follow_owner": { "priority": 6, "speed_multiplier": 1.5, "start_distance": 10.0, "stop_distance": 4.0 },
+        "minecraft:behavior.follow_owner": { "priority": 6, "speed_multiplier": 1.5, "start_distance": 8.0, "stop_distance": 3.0 },
         "minecraft:behavior.random_stroll": { "priority": 7, "speed_multiplier": 0.8 }
       },
       "dogz:sitting": {
@@ -166,7 +175,7 @@
     "components": {
       "minecraft:type_family": { "family": [ "wolf", "dog", "mob", "cat", "ocelot" ] },
       "minecraft:nameable": { "always_show": false, "allow_name_tag_renaming": true },
-      "minecraft:attack": { "damage": 7 },
+      "minecraft:attack": { "damage": 6 },
       "minecraft:movement.basic": {}, "minecraft:jump.static": {}, "minecraft:can_climb": {}, "minecraft:physics": {}, "minecraft:pushable": { "is_pushable": true },
       "minecraft:collision_box": { "width": 0.6, "height": 0.85 },
       "minecraft:behavior.float": { "priority": 0 },
