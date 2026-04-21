@@ -4,39 +4,39 @@
     "animation.german_shepherd.walk": {
       "loop": true,
       "bones": {
-        "leftLeg0":  { "rotation": [ "math.cos(query.modified_distance_moved * 38.17) * 40", 0, 0 ] },
-        "rightLeg1": { "rotation": [ "math.cos(query.modified_distance_moved * 38.17) * 40", 0, 0 ] },
-        "rightLeg0": { "rotation": [ "math.cos(query.modified_distance_moved * 38.17 + 180) * 40", 0, 0 ] },
-        "leftLeg1":  { "rotation": [ "math.cos(query.modified_distance_moved * 38.17 + 180) * 40", 0, 0 ] },
-        "tail0": { "rotation": [ 0, "math.cos(query.modified_distance_moved * 38.17) * 20", 0 ] }
+        "leg0blood": { "rotation": [ "math.cos(query.modified_distance_moved * 38.17) * 40", 0, 0 ] },
+        "leg1blood": { "rotation": [ "math.cos(query.modified_distance_moved * 38.17) * 40", 0, 0 ] },
+        "leg2blood": { "rotation": [ "math.cos(query.modified_distance_moved * 38.17 + 180) * 40", 0, 0 ] },
+        "leg3blood": { "rotation": [ "math.cos(query.modified_distance_moved * 38.17 + 180) * 40", 0, 0 ] },
+        "tail3": { "rotation": [ 0, "math.cos(query.modified_distance_moved * 38.17) * 20", 0 ] }
       }
     },
     "animation.german_shepherd.sit": {
       "loop": true,
       "bones": {
-        "body0": { "rotation": [ -37.5, 0, 0 ], "position": [ 0, -3, 0 ] },
-        "head":  { "rotation": [ 15, 0, 0 ] },
-        "tail0": { "rotation": [ 37.5, 0, 0 ] },
-        "leftLeg0":  { "rotation": [ 90, 0, 0 ], "position": [ 0, 5, -3 ] },
-        "rightLeg0": { "rotation": [ 90, 0, 0 ], "position": [ 0, 5, -3 ] }
+        "body": { "rotation": [ -37.5, 0, 0 ], "position": [ 0, -3, 0 ] },
+        "heads": { "rotation": [ 15, 0, 0 ] },
+        "tail3": { "rotation": [ 37.5, 0, 0 ] },
+        "leg0blood": { "rotation": [ 90, 0, 0 ], "position": [ 0, 5, -3 ] },
+        "leg1blood": { "rotation": [ 90, 0, 0 ], "position": [ 0, 5, -3 ] }
       }
     },
     "animation.german_shepherd.lay_down": {
       "loop": true,
       "bones": {
-        "body0": { "position": [ 0, -7, 0 ] },
-        "head":  { "rotation": [ 15, 0, 0 ] },
-        "leftLeg0":  { "rotation": [ -90, 0, 0 ], "position": [ 0, -3, 0 ] },
-        "rightLeg0": { "rotation": [ -90, 0, 0 ], "position": [ 0, -3, 0 ] },
-        "leftLeg1":  { "rotation": [ -90, 0, 0 ], "position": [ 0, -3, 0 ] },
-        "rightLeg1": { "rotation": [ -90, 0, 0 ], "position": [ 0, -3, 0 ] },
-        "tail0": { "rotation": [ 10, 0, 0 ] }
+        "body": { "position": [ 0, -7, 0 ] },
+        "heads": { "rotation": [ 15, 0, 0 ] },
+        "leg0blood": { "rotation": [ -90, 0, 0 ], "position": [ 0, -3, 0 ] },
+        "leg1blood": { "rotation": [ -90, 0, 0 ], "position": [ 0, -3, 0 ] },
+        "leg2blood": { "rotation": [ -90, 0, 0 ], "position": [ 0, -3, 0 ] },
+        "leg3blood": { "rotation": [ -90, 0, 0 ], "position": [ 0, -3, 0 ] },
+        "tail3": { "rotation": [ 10, 0, 0 ] }
       }
     },
     "animation.german_shepherd.tail_health": {
       "loop": true,
       "bones": {
-        "tail0": {
+        "tail3": {
           "rotation": [
             "math.lerp(-27.0, 63.0, query.health / query.max_health)",
             0,
